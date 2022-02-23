@@ -33,13 +33,13 @@ namespace Team4_Project2
             InitializeComponent();
         }
 
-        #region Instructions Dropdown Menu Button
+        #region Information Dropdown Menu Button
         /// <summary>
         /// Opens instruction set information
         /// </summary>
         /// <param name="sender">object that raised the event (auto-generated, unused here)</param>
         /// <param name="e">arguments for event (auto-generated, unused here)</param>
-        private void instructionsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void informationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ProgramController.openInformation();
         }

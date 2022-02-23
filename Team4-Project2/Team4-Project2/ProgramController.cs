@@ -602,7 +602,7 @@ namespace Team4_Project2
 
             filePath += "\\Files\\Instructions.txt";
 
-            //Open the file located at filePath (which is Instructions.txt)
+            //Open the file located at filePath (which is Information.txt)
             Process.Start(filePath);
 
         }//end openInformation()

@@ -31,7 +31,7 @@ namespace Team4_Project2
     /// </summary>
     public class ProgramController
     {
-        public static GUIForm guiForm;    //MainForm instance to open program to
+        public static GUIForm guiForm;    //GUIForm instance to open program to
 
         #region startProgram() Method
         /// <summary>
@@ -42,7 +42,7 @@ namespace Team4_Project2
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //Opens application to mainForm
+            //Opens application to guiForm
             guiForm = new GUIForm();
             Application.Run(guiForm);
 

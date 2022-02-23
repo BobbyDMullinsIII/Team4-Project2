@@ -1,0 +1,38 @@
+﻿=Instruction Name=			=Instruction=		=Opcode=		=Register=	=Addressing Mode=	=Data=
+Load Register				LDRE R,R		0x0(00000XXX)		0x0(X<8)	(00)			(XXX0000000000000000000XX) 
+Load Register				LDRE R,Immediate	0x0(00001XXX)		0x0(X>7)	(01)			(XXXXXXXXXXXXXXXX000000XX) 
+Load Register				LDRE R,Memory		0x1(00010XXX)		0x1(X<8)	(10)			(XXXXXXXXXXXXXXXXXXXX00XX) 
+Store Register				STRE &R,R		0x1(00011XXX)		0x1(X>7)	(10)			(XXXXXXXXXXXXXXXX000000XX) 
+Move					MOVE R,R		0x2(00100XXX)		0x2(X<8)	(00)			(XXX0000000000000000000XX)
+Compare					COMP R,R,R		0x2(00101XXX)		0x2(X>7)	(00)			(XXXXXX0000000000000000XX) 
+Bitwise And				ANDD R,R,R		0x3(00110XXX)		0x3(X<8)	(00)			(XXXXXX0000000000000000XX) 
+Bitwise Or				OORR R,R,R		0x3(00111XXX)		0x3(X>7)	(00)			(XXXXXX0000000000000000XX) 
+Branch if Less Than			BRLT R,R		0x4(01000XXX)		0x4(X<8)	(00)			(XXX0000000000000000000XX) 
+Branch if Greater Than			BRGT R,R		0x4(01001XXX)		0x4(X>7)	(00)			(XXX0000000000000000000XX) 
+Branch if Equal To			BREQ R,R		0x5(01010XXX)		0x5(X<8)	(00)			(XXX0000000000000000000XX) 
+Branch					BRAN R,R		0x5(01011XXX)		0x5(X>7)	(00)			(XXX0000000000000000000XX) 
+Addition				ADDI R,R,R		0x6(01100XXX)		0x6(X<8)	(00)			(XXXXXX0000000000000000XX) 
+Subtraction				SUBT R,R,R		0x6(01101XXX)		0x6(X>7)	(00)			(XXXXXX0000000000000000XX) 
+Stop					STOP			0xFF			N/A		N/A			N/A
+
+
+=Addressing Modes=
+(00)	1 Register
+(01)	Immediate
+(10)	Memory
+(11)	2 Registers
+
+
+=Registers=
+0	PC
+1	flag
+2	GP
+3	GP
+4	GP
+5	GP
+6	GP
+7	GP
+
+
+=Computing Model=
+Register to Register

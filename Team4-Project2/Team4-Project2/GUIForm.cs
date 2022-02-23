@@ -44,5 +44,36 @@ namespace Team4_Project2
             ProgramController.openInformation();
         }
         #endregion
+
+        /// <summary>
+        /// Clears assembly language text box
+        /// </summary>
+        /// <param name="sender">object that raised the event (auto-generated, unused here)</param>
+        /// <param name="e">arguments for event (auto-generated, unused here)</param>
+        private void clearAssemblyButton_Click(object sender, EventArgs e)
+        {
+            assemblyTextBox.Text = "";
+        }
+
+        /// <summary>
+        /// Loads content from file to assembly language text box
+        /// </summary>
+        /// <param name="sender">object that raised the event (auto-generated, unused here)</param>
+        /// <param name="e">arguments for event (auto-generated, unused here)</param>
+        private void loadAssemblyButton_Click(object sender, EventArgs e)
+        {
+            assemblyTextBox.Text = ProgramController.openFile();
+        }
+
+        /// <summary>
+        /// Saves content inside of assembly language text box into a file
+        /// </summary>
+        /// <param name="sender">object that raised the event (auto-generated, unused here)</param>
+        /// <param name="e">arguments for event (auto-generated, unused here)</param>
+        private void saveAssemblyButton_Click(object sender, EventArgs e)
+        {
+            ProgramController.saveFile(assemblyTextBox.Text);
+        }
+
     }
 }

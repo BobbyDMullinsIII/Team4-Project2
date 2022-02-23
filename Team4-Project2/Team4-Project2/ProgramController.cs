@@ -600,7 +600,7 @@ namespace Team4_Project2
             filePath = Directory.GetParent(filePath).FullName;
             filePath = Directory.GetParent(filePath).FullName;
 
-            filePath += "\\Files\\Instructions.txt";
+            filePath += "\\Files\\Information.txt";
 
             //Open the file located at filePath (which is Information.txt)
             Process.Start(filePath);

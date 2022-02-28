@@ -33,6 +33,7 @@ namespace Team4_Project2
     {
         public static GUIForm guiForm;    //GUIForm instance to open program to
 
+        //General Function Methods
         #region startProgram() Method
         /// <summary>
         /// Method for starting program
@@ -49,6 +50,92 @@ namespace Team4_Project2
         }//end startProgram()
         #endregion
 
+        #region exitProgram() Method
+        /// <summary>
+        /// Method for exiting program
+        /// </summary>
+        public static void exitProgram()
+        {
+            Environment.Exit(0);
+
+        }//end exitProgram()
+        #endregion
+
+        #region openFile() Method
+        /// <summary>
+        /// Method for inputting an entire text file into one string
+        /// </summary>
+        /// <returns>Input string from entire text file</returns>
+        public static string openFile()
+        {
+            OpenFileDialog fd = new OpenFileDialog();
+            StreamReader reader;
+
+            string Path;
+            string FileContent = "";
+
+            //fd.InitialDirectory = "c:\\";
+
+            if (fd.ShowDialog() == DialogResult.OK)
+            {
+                Path = fd.FileName;
+
+                var FileStream = fd.OpenFile();
+
+                reader = new StreamReader(FileStream);
+
+                FileContent = reader.ReadToEnd();
+
+                return FileContent;
+            }
+
+            return FileContent;
+
+        }//end openFile()
+        #endregion
+
+        #region saveFile() Method
+        /// <summary>
+        /// Method for outputting a text file from a string
+        /// </summary>
+        /// <param name="outputString">String to be output to a text file</param>
+        public static void saveFile(string outputString)
+        {
+            SaveFileDialog sf = new SaveFileDialog();
+
+            sf.ShowDialog();
+
+            if (sf.FileName != "")
+            {
+                File.WriteAllText(sf.FileName, outputString);
+            }
+
+        }//end saveFile()
+        #endregion
+
+        #region openInformation() Method
+        /// <summary>
+        /// Method for opening instruction set information
+        /// </summary>
+        public static void openInformation()
+        {
+            //Get the current directory
+            string filePath = Directory.GetCurrentDirectory();
+
+            //Move up two parent directories
+            filePath = Directory.GetParent(filePath).FullName;
+            filePath = Directory.GetParent(filePath).FullName;
+
+            filePath += "\\Files\\Information.txt";
+
+            //Open the file located at filePath (which is Information.txt)
+            Process.Start(filePath);
+
+        }//end openInformation()
+        #endregion
+
+
+        //Assemble to Machine Code Methods
         #region assemble() Method
         /// <summary>
         /// Master Method for assembling custom assembly language instruction set into machine code
@@ -343,6 +430,8 @@ namespace Team4_Project2
         }//end assemble()
         #endregion
 
+
+        //Disassemble to Assembly Code Methods
         #region disassemble() Method
         /// <summary>
         /// Master Method for disassembling machine code into assembly
@@ -535,77 +624,82 @@ namespace Team4_Project2
         }
         #endregion
 
-        #region openFile() Method
+
+        //Pipeline Phase Methods
+        #region fetch() Method
         /// <summary>
-        /// Method for inputting an entire text file into one string
+        /// Method for fetching instruction phase in pipeline
         /// </summary>
-        /// <returns>Input string from entire text file</returns>
-        public static string openFile()
+        /// <param name="fetchInput">Input instruction to fetch</param>
+        /// <returns></returns>
+        public static string fetch(string fetchInput)
         {
-            OpenFileDialog fd = new OpenFileDialog();
-            StreamReader reader;
+            string fetchOutput = "";
 
-            String Path;
-            String FileContent = "";
+            //=============================//
+            //INSERT CODE FOR FETCHING HERE//
+            //=============================//
 
-            fd.InitialDirectory = "c:\\";
+            return fetchOutput;
 
-            if (fd.ShowDialog() == DialogResult.OK)
-            {
-                Path = fd.FileName;
-
-                var FileStream = fd.OpenFile();
-
-                reader = new StreamReader(FileStream);
-
-                FileContent = reader.ReadToEnd();
-
-                return FileContent;
-            }
-
-            return FileContent;
-
-        }//end openFile()
+        }//end fetch()
         #endregion
 
-        #region saveFile() Method
+        #region decode() Method
         /// <summary>
-        /// Method for outputting a text file from a string
+        /// Method for decoding instruction phase in pipeline
         /// </summary>
-        /// <param name="outputString">String to be output to a text file</param>
-        public static void saveFile(string outputString)
+        /// <param name="decodeInput">Input instruction to decode</param>
+        /// <returns></returns>
+        public static string decode(string decodeInput)
         {
-            SaveFileDialog sf = new SaveFileDialog();
+            string decodeOutput = "";
 
-            sf.ShowDialog();
+            //=============================//
+            //INSERT CODE FOR DECODING HERE//
+            //=============================//
 
-            if (sf.FileName != "")
-            {
-                File.WriteAllText(sf.FileName, outputString);
-            }
+            return decodeOutput;
 
-        }//end saveFile()
+        }//end decode()
         #endregion
 
-        #region openInformation() Method
+        #region execute() Method
         /// <summary>
-        /// Method for opening instruction set information
+        /// Method for executing instruction phase in pipeline
         /// </summary>
-        public static void openInformation()
+        /// <param name="executeInput">Input instruction to execute</param>
+        /// <returns></returns>
+        public static string execute(string executeInput)
         {
-            //Get the current directory
-            string filePath = Directory.GetCurrentDirectory();
+            string executeOutput = "";
 
-            //Move up two parent directories
-            filePath = Directory.GetParent(filePath).FullName;
-            filePath = Directory.GetParent(filePath).FullName;
+            //==============================//
+            //INSERT CODE FOR EXECUTING HERE//
+            //==============================//
 
-            filePath += "\\Files\\Information.txt";
+            return executeOutput;
 
-            //Open the file located at filePath (which is Information.txt)
-            Process.Start(filePath);
+        }//end execute()
+        #endregion
 
-        }//end openInformation()
+        #region store() Method
+        /// <summary>
+        /// Method for storing instruction phase in pipeline
+        /// </summary>
+        /// <param name="storeInput">Input instruction to store</param>
+        /// <returns></returns>
+        public static string store(string storeInput)
+        {
+            string storeOutput = "";
+
+            //======================================//
+            //INSERT CODE FOR STORING/FINISHING HERE//
+            //======================================//
+
+            return storeOutput;
+
+        }//end store()
         #endregion
 
     }//end ProgramController class

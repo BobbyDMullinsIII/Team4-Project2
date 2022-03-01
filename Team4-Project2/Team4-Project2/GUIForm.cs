@@ -151,18 +151,23 @@ namespace Team4_Project2
                 fetchLabel.ForeColor = Color.Red;
 
                 //Enables nextPhaseButton to be pressed when simulation has began and disables startButton
-                nextPhaseButton.Enabled = true;
+                nextCycleButton.Enabled = true;
                 startButton.Enabled = false;
             }
         }
 
         /// <summary>
-        /// Goes to next phase within simulation
+        /// Goes to next cycle within simulation
         /// </summary>
         /// <param name="sender">object that raised the event (auto-generated, unused here)</param>
         /// <param name="e">arguments for event (auto-generated, unused here)</param>
-        private void nextPhaseButton_Click(object sender, EventArgs e)
+        private void nextCycleButton_Click(object sender, EventArgs e)
         {
+            //==========================================================//
+            //Currently, each phase is only 1 clock cycle, but will need//
+            //to be changed depending on what instruction and registers //
+            //==========================================================//
+
             //If phaseCounter is not on final phase, count up to next phase
             if (phaseCounter < 4)
             {

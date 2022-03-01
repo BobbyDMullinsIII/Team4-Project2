@@ -40,7 +40,7 @@
             this.assemblyTextBox = new System.Windows.Forms.TextBox();
             this.assemblyLabel = new System.Windows.Forms.Label();
             this.simulationPanel = new System.Windows.Forms.Panel();
-            this.nextPhaseButton = new System.Windows.Forms.Button();
+            this.nextCycleButton = new System.Windows.Forms.Button();
             this.startButton = new System.Windows.Forms.Button();
             this.storeLabel = new System.Windows.Forms.Label();
             this.executeLabel = new System.Windows.Forms.Label();
@@ -192,7 +192,7 @@
             // simulationPanel
             // 
             this.simulationPanel.BackColor = System.Drawing.Color.Black;
-            this.simulationPanel.Controls.Add(this.nextPhaseButton);
+            this.simulationPanel.Controls.Add(this.nextCycleButton);
             this.simulationPanel.Controls.Add(this.startButton);
             this.simulationPanel.Controls.Add(this.storeLabel);
             this.simulationPanel.Controls.Add(this.executeLabel);
@@ -204,22 +204,22 @@
             this.simulationPanel.Size = new System.Drawing.Size(946, 604);
             this.simulationPanel.TabIndex = 3;
             // 
-            // nextPhaseButton
+            // nextCycleButton
             // 
-            this.nextPhaseButton.BackColor = System.Drawing.Color.Silver;
-            this.nextPhaseButton.Enabled = false;
-            this.nextPhaseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nextPhaseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.nextPhaseButton.ForeColor = System.Drawing.Color.Black;
-            this.nextPhaseButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.nextPhaseButton.Location = new System.Drawing.Point(776, 552);
-            this.nextPhaseButton.Margin = new System.Windows.Forms.Padding(1);
-            this.nextPhaseButton.Name = "nextPhaseButton";
-            this.nextPhaseButton.Size = new System.Drawing.Size(160, 40);
-            this.nextPhaseButton.TabIndex = 18;
-            this.nextPhaseButton.Text = "Next Phase";
-            this.nextPhaseButton.UseVisualStyleBackColor = false;
-            this.nextPhaseButton.Click += new System.EventHandler(this.nextPhaseButton_Click);
+            this.nextCycleButton.BackColor = System.Drawing.Color.Silver;
+            this.nextCycleButton.Enabled = false;
+            this.nextCycleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nextCycleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.nextCycleButton.ForeColor = System.Drawing.Color.Black;
+            this.nextCycleButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.nextCycleButton.Location = new System.Drawing.Point(776, 552);
+            this.nextCycleButton.Margin = new System.Windows.Forms.Padding(1);
+            this.nextCycleButton.Name = "nextCycleButton";
+            this.nextCycleButton.Size = new System.Drawing.Size(160, 40);
+            this.nextCycleButton.TabIndex = 18;
+            this.nextCycleButton.Text = "Next Cycle";
+            this.nextCycleButton.UseVisualStyleBackColor = false;
+            this.nextCycleButton.Click += new System.EventHandler(this.nextCycleButton_Click);
             // 
             // startButton
             // 
@@ -432,7 +432,7 @@
         private System.Windows.Forms.Label decodeLabel;
         private System.Windows.Forms.Label fetchLabel;
         private System.Windows.Forms.Button startButton;
-        private System.Windows.Forms.Button nextPhaseButton;
+        private System.Windows.Forms.Button nextCycleButton;
         private System.Windows.Forms.Button savePipelineOutputButton;
         private System.Windows.Forms.Button clearPipelineOutputButton;
         private System.Windows.Forms.Button loadPipelineOutputButton;

@@ -61,7 +61,7 @@ namespace Team4_Project2
         }
         #endregion
 
-        #region TextBox Buttons
+        #region Assembly TextBox Buttons
         /// <summary>
         /// Clears assembly language text box
         /// </summary>
@@ -90,6 +90,38 @@ namespace Team4_Project2
         private void saveAssemblyButton_Click(object sender, EventArgs e)
         {
             ProgramController.saveFile(assemblyTextBox.Text);
+        }
+        #endregion
+
+        #region Pipeline TextBox Buttons
+        /// <summary>
+        /// Clears pipeline output text box
+        /// </summary>
+        /// <param name="sender">object that raised the event (auto-generated, unused here)</param>
+        /// <param name="e">arguments for event (auto-generated, unused here)</param>
+        private void clearPipelineOutputButton_Click(object sender, EventArgs e)
+        {
+            pipelineOutputTextBox.Text = "";
+        }
+
+        /// <summary>
+        /// Loads content from file to pipeline output text box
+        /// </summary>
+        /// <param name="sender">object that raised the event (auto-generated, unused here)</param>
+        /// <param name="e">arguments for event (auto-generated, unused here)</param>
+        private void loadPipelineOutputButton_Click(object sender, EventArgs e)
+        {
+            pipelineOutputTextBox.Text = ProgramController.openFile();
+        }
+
+        /// <summary>
+        /// Saves content inside of pipeline output text box into a file
+        /// </summary>
+        /// <param name="sender">object that raised the event (auto-generated, unused here)</param>
+        /// <param name="e">arguments for event (auto-generated, unused here)</param>
+        private void savePipelineOutputButton_Click(object sender, EventArgs e)
+        {
+            ProgramController.saveFile(pipelineOutputTextBox.Text);
         }
         #endregion
 

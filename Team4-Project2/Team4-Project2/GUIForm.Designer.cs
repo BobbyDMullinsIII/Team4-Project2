@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.filesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.instructionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.assemblyPanel = new System.Windows.Forms.Panel();
             this.saveAssemblyButton = new System.Windows.Forms.Button();
             this.clearAssemblyButton = new System.Windows.Forms.Button();
@@ -39,17 +40,23 @@
             this.assemblyTextBox = new System.Windows.Forms.TextBox();
             this.assemblyLabel = new System.Windows.Forms.Label();
             this.simulationPanel = new System.Windows.Forms.Panel();
-            this.staticPipeLabel = new System.Windows.Forms.Label();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fetchLabel = new System.Windows.Forms.Label();
-            this.decodeLabel = new System.Windows.Forms.Label();
-            this.executeLabel = new System.Windows.Forms.Label();
-            this.storeLabel = new System.Windows.Forms.Label();
-            this.startButton = new System.Windows.Forms.Button();
             this.nextPhaseButton = new System.Windows.Forms.Button();
+            this.startButton = new System.Windows.Forms.Button();
+            this.storeLabel = new System.Windows.Forms.Label();
+            this.executeLabel = new System.Windows.Forms.Label();
+            this.decodeLabel = new System.Windows.Forms.Label();
+            this.fetchLabel = new System.Windows.Forms.Label();
+            this.staticPipeLabel = new System.Windows.Forms.Label();
+            this.savePipelineOutputButton = new System.Windows.Forms.Button();
+            this.clearPipelineOutputButton = new System.Windows.Forms.Button();
+            this.loadPipelineOutputButton = new System.Windows.Forms.Button();
+            this.pipelineOutputTextBox = new System.Windows.Forms.TextBox();
+            this.pipelineOutputLabel = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.assemblyPanel.SuspendLayout();
             this.simulationPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MNAWLabel
@@ -70,7 +77,7 @@
             this.filesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1264, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1584, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -87,9 +94,16 @@
             // instructionsToolStripMenuItem
             // 
             this.instructionsToolStripMenuItem.Name = "instructionsToolStripMenuItem";
-            this.instructionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.instructionsToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.instructionsToolStripMenuItem.Text = "Information";
             this.instructionsToolStripMenuItem.Click += new System.EventHandler(this.informationToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // assemblyPanel
             // 
@@ -169,7 +183,7 @@
             this.assemblyLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.assemblyLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.assemblyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assemblyLabel.Location = new System.Drawing.Point(12, 1);
+            this.assemblyLabel.Location = new System.Drawing.Point(17, 1);
             this.assemblyLabel.Name = "assemblyLabel";
             this.assemblyLabel.Size = new System.Drawing.Size(282, 33);
             this.assemblyLabel.TabIndex = 5;
@@ -190,90 +204,6 @@
             this.simulationPanel.Size = new System.Drawing.Size(946, 604);
             this.simulationPanel.TabIndex = 3;
             // 
-            // staticPipeLabel
-            // 
-            this.staticPipeLabel.AutoSize = true;
-            this.staticPipeLabel.BackColor = System.Drawing.Color.Black;
-            this.staticPipeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.staticPipeLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.staticPipeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.staticPipeLabel.Location = new System.Drawing.Point(3, 1);
-            this.staticPipeLabel.Name = "staticPipeLabel";
-            this.staticPipeLabel.Size = new System.Drawing.Size(321, 33);
-            this.staticPipeLabel.TabIndex = 4;
-            this.staticPipeLabel.Text = "Static Pipeline Simulation";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // fetchLabel
-            // 
-            this.fetchLabel.AutoSize = true;
-            this.fetchLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.fetchLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fetchLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fetchLabel.Location = new System.Drawing.Point(3, 37);
-            this.fetchLabel.Name = "fetchLabel";
-            this.fetchLabel.Size = new System.Drawing.Size(63, 27);
-            this.fetchLabel.TabIndex = 4;
-            this.fetchLabel.Text = "Fetch";
-            // 
-            // decodeLabel
-            // 
-            this.decodeLabel.AutoSize = true;
-            this.decodeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.decodeLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.decodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.decodeLabel.Location = new System.Drawing.Point(72, 37);
-            this.decodeLabel.Name = "decodeLabel";
-            this.decodeLabel.Size = new System.Drawing.Size(82, 27);
-            this.decodeLabel.TabIndex = 5;
-            this.decodeLabel.Text = "Decode";
-            // 
-            // executeLabel
-            // 
-            this.executeLabel.AutoSize = true;
-            this.executeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.executeLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.executeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.executeLabel.Location = new System.Drawing.Point(160, 37);
-            this.executeLabel.Name = "executeLabel";
-            this.executeLabel.Size = new System.Drawing.Size(85, 27);
-            this.executeLabel.TabIndex = 6;
-            this.executeLabel.Text = "Execute";
-            // 
-            // storeLabel
-            // 
-            this.storeLabel.AutoSize = true;
-            this.storeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.storeLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.storeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.storeLabel.Location = new System.Drawing.Point(251, 37);
-            this.storeLabel.Name = "storeLabel";
-            this.storeLabel.Size = new System.Drawing.Size(61, 27);
-            this.storeLabel.TabIndex = 7;
-            this.storeLabel.Text = "Store";
-            // 
-            // startButton
-            // 
-            this.startButton.BackColor = System.Drawing.Color.Silver;
-            this.startButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.startButton.ForeColor = System.Drawing.Color.Black;
-            this.startButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.startButton.Location = new System.Drawing.Point(12, 552);
-            this.startButton.Margin = new System.Windows.Forms.Padding(1);
-            this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(160, 40);
-            this.startButton.TabIndex = 17;
-            this.startButton.Text = "Start Simulation";
-            this.startButton.UseVisualStyleBackColor = false;
-            this.startButton.Click += new System.EventHandler(this.startButton_Click);
-            // 
             // nextPhaseButton
             // 
             this.nextPhaseButton.BackColor = System.Drawing.Color.Silver;
@@ -291,12 +221,174 @@
             this.nextPhaseButton.UseVisualStyleBackColor = false;
             this.nextPhaseButton.Click += new System.EventHandler(this.nextPhaseButton_Click);
             // 
+            // startButton
+            // 
+            this.startButton.BackColor = System.Drawing.Color.Silver;
+            this.startButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.startButton.ForeColor = System.Drawing.Color.Black;
+            this.startButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.startButton.Location = new System.Drawing.Point(12, 552);
+            this.startButton.Margin = new System.Windows.Forms.Padding(1);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(160, 40);
+            this.startButton.TabIndex = 17;
+            this.startButton.Text = "Start Simulation";
+            this.startButton.UseVisualStyleBackColor = false;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
+            // 
+            // storeLabel
+            // 
+            this.storeLabel.AutoSize = true;
+            this.storeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.storeLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.storeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.storeLabel.Location = new System.Drawing.Point(251, 37);
+            this.storeLabel.Name = "storeLabel";
+            this.storeLabel.Size = new System.Drawing.Size(61, 27);
+            this.storeLabel.TabIndex = 7;
+            this.storeLabel.Text = "Store";
+            // 
+            // executeLabel
+            // 
+            this.executeLabel.AutoSize = true;
+            this.executeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.executeLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.executeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.executeLabel.Location = new System.Drawing.Point(160, 37);
+            this.executeLabel.Name = "executeLabel";
+            this.executeLabel.Size = new System.Drawing.Size(85, 27);
+            this.executeLabel.TabIndex = 6;
+            this.executeLabel.Text = "Execute";
+            // 
+            // decodeLabel
+            // 
+            this.decodeLabel.AutoSize = true;
+            this.decodeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.decodeLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.decodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.decodeLabel.Location = new System.Drawing.Point(72, 37);
+            this.decodeLabel.Name = "decodeLabel";
+            this.decodeLabel.Size = new System.Drawing.Size(82, 27);
+            this.decodeLabel.TabIndex = 5;
+            this.decodeLabel.Text = "Decode";
+            // 
+            // fetchLabel
+            // 
+            this.fetchLabel.AutoSize = true;
+            this.fetchLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fetchLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fetchLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fetchLabel.Location = new System.Drawing.Point(3, 37);
+            this.fetchLabel.Name = "fetchLabel";
+            this.fetchLabel.Size = new System.Drawing.Size(63, 27);
+            this.fetchLabel.TabIndex = 4;
+            this.fetchLabel.Text = "Fetch";
+            // 
+            // staticPipeLabel
+            // 
+            this.staticPipeLabel.AutoSize = true;
+            this.staticPipeLabel.BackColor = System.Drawing.Color.Black;
+            this.staticPipeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.staticPipeLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.staticPipeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staticPipeLabel.Location = new System.Drawing.Point(3, 1);
+            this.staticPipeLabel.Name = "staticPipeLabel";
+            this.staticPipeLabel.Size = new System.Drawing.Size(321, 33);
+            this.staticPipeLabel.TabIndex = 4;
+            this.staticPipeLabel.Text = "Static Pipeline Simulation";
+            // 
+            // savePipelineOutputButton
+            // 
+            this.savePipelineOutputButton.BackColor = System.Drawing.Color.Silver;
+            this.savePipelineOutputButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.savePipelineOutputButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.savePipelineOutputButton.ForeColor = System.Drawing.Color.Black;
+            this.savePipelineOutputButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.savePipelineOutputButton.Location = new System.Drawing.Point(235, 461);
+            this.savePipelineOutputButton.Margin = new System.Windows.Forms.Padding(1);
+            this.savePipelineOutputButton.Name = "savePipelineOutputButton";
+            this.savePipelineOutputButton.Size = new System.Drawing.Size(70, 40);
+            this.savePipelineOutputButton.TabIndex = 16;
+            this.savePipelineOutputButton.Text = "Save";
+            this.savePipelineOutputButton.UseVisualStyleBackColor = false;
+            this.savePipelineOutputButton.Click += new System.EventHandler(this.savePipelineOutputButton_Click);
+            // 
+            // clearPipelineOutputButton
+            // 
+            this.clearPipelineOutputButton.BackColor = System.Drawing.Color.Silver;
+            this.clearPipelineOutputButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearPipelineOutputButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.clearPipelineOutputButton.ForeColor = System.Drawing.Color.Black;
+            this.clearPipelineOutputButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.clearPipelineOutputButton.Location = new System.Drawing.Point(12, 461);
+            this.clearPipelineOutputButton.Margin = new System.Windows.Forms.Padding(1);
+            this.clearPipelineOutputButton.Name = "clearPipelineOutputButton";
+            this.clearPipelineOutputButton.Size = new System.Drawing.Size(140, 40);
+            this.clearPipelineOutputButton.TabIndex = 15;
+            this.clearPipelineOutputButton.Text = "Clear";
+            this.clearPipelineOutputButton.UseVisualStyleBackColor = false;
+            this.clearPipelineOutputButton.Click += new System.EventHandler(this.clearPipelineOutputButton_Click);
+            // 
+            // loadPipelineOutputButton
+            // 
+            this.loadPipelineOutputButton.BackColor = System.Drawing.Color.Silver;
+            this.loadPipelineOutputButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loadPipelineOutputButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.loadPipelineOutputButton.ForeColor = System.Drawing.Color.Black;
+            this.loadPipelineOutputButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.loadPipelineOutputButton.Location = new System.Drawing.Point(163, 461);
+            this.loadPipelineOutputButton.Margin = new System.Windows.Forms.Padding(1);
+            this.loadPipelineOutputButton.Name = "loadPipelineOutputButton";
+            this.loadPipelineOutputButton.Size = new System.Drawing.Size(70, 40);
+            this.loadPipelineOutputButton.TabIndex = 14;
+            this.loadPipelineOutputButton.Text = "Load";
+            this.loadPipelineOutputButton.UseVisualStyleBackColor = false;
+            this.loadPipelineOutputButton.Click += new System.EventHandler(this.loadPipelineOutputButton_Click);
+            // 
+            // pipelineOutputTextBox
+            // 
+            this.pipelineOutputTextBox.BackColor = System.Drawing.Color.White;
+            this.pipelineOutputTextBox.ForeColor = System.Drawing.Color.Black;
+            this.pipelineOutputTextBox.Location = new System.Drawing.Point(12, 37);
+            this.pipelineOutputTextBox.Multiline = true;
+            this.pipelineOutputTextBox.Name = "pipelineOutputTextBox";
+            this.pipelineOutputTextBox.Size = new System.Drawing.Size(293, 420);
+            this.pipelineOutputTextBox.TabIndex = 6;
+            // 
+            // pipelineOutputLabel
+            // 
+            this.pipelineOutputLabel.AutoSize = true;
+            this.pipelineOutputLabel.BackColor = System.Drawing.Color.Black;
+            this.pipelineOutputLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pipelineOutputLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pipelineOutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pipelineOutputLabel.Location = new System.Drawing.Point(58, 1);
+            this.pipelineOutputLabel.Name = "pipelineOutputLabel";
+            this.pipelineOutputLabel.Size = new System.Drawing.Size(201, 33);
+            this.pipelineOutputLabel.TabIndex = 5;
+            this.pipelineOutputLabel.Text = "Pipeline Output";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Controls.Add(this.savePipelineOutputButton);
+            this.panel1.Controls.Add(this.clearPipelineOutputButton);
+            this.panel1.Controls.Add(this.loadPipelineOutputButton);
+            this.panel1.Controls.Add(this.pipelineOutputTextBox);
+            this.panel1.Controls.Add(this.pipelineOutputLabel);
+            this.panel1.Location = new System.Drawing.Point(1272, 80);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(312, 604);
+            this.panel1.TabIndex = 17;
+            // 
             // GUIForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1584, 681);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.simulationPanel);
             this.Controls.Add(this.assemblyPanel);
             this.Controls.Add(this.MNAWLabel);
@@ -313,6 +405,8 @@
             this.assemblyPanel.PerformLayout();
             this.simulationPanel.ResumeLayout(false);
             this.simulationPanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,6 +433,12 @@
         private System.Windows.Forms.Label fetchLabel;
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Button nextPhaseButton;
+        private System.Windows.Forms.Button savePipelineOutputButton;
+        private System.Windows.Forms.Button clearPipelineOutputButton;
+        private System.Windows.Forms.Button loadPipelineOutputButton;
+        private System.Windows.Forms.TextBox pipelineOutputTextBox;
+        private System.Windows.Forms.Label pipelineOutputLabel;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

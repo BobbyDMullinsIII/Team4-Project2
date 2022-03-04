@@ -53,6 +53,22 @@
             this.pipelineOutputTextBox = new System.Windows.Forms.TextBox();
             this.pipelineOutputLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.instructOneText = new System.Windows.Forms.TextBox();
+            this.fetchLabel2 = new System.Windows.Forms.Label();
+            this.decodeLabel2 = new System.Windows.Forms.Label();
+            this.executeLabel2 = new System.Windows.Forms.Label();
+            this.storeLabel2 = new System.Windows.Forms.Label();
+            this.fetchLabel3 = new System.Windows.Forms.Label();
+            this.decodeLabel3 = new System.Windows.Forms.Label();
+            this.executeLabe3 = new System.Windows.Forms.Label();
+            this.storeLabel3 = new System.Windows.Forms.Label();
+            this.fetchLabel4 = new System.Windows.Forms.Label();
+            this.decodeLabel4 = new System.Windows.Forms.Label();
+            this.executeLabel4 = new System.Windows.Forms.Label();
+            this.storeLabel4 = new System.Windows.Forms.Label();
+            this.instructTextBox2 = new System.Windows.Forms.TextBox();
+            this.instructTextBox4 = new System.Windows.Forms.TextBox();
+            this.instructTextBox3 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.assemblyPanel.SuspendLayout();
             this.simulationPanel.SuspendLayout();
@@ -192,6 +208,22 @@
             // simulationPanel
             // 
             this.simulationPanel.BackColor = System.Drawing.Color.Black;
+            this.simulationPanel.Controls.Add(this.instructTextBox3);
+            this.simulationPanel.Controls.Add(this.instructTextBox4);
+            this.simulationPanel.Controls.Add(this.instructTextBox2);
+            this.simulationPanel.Controls.Add(this.storeLabel4);
+            this.simulationPanel.Controls.Add(this.executeLabel4);
+            this.simulationPanel.Controls.Add(this.decodeLabel4);
+            this.simulationPanel.Controls.Add(this.fetchLabel4);
+            this.simulationPanel.Controls.Add(this.storeLabel3);
+            this.simulationPanel.Controls.Add(this.executeLabe3);
+            this.simulationPanel.Controls.Add(this.decodeLabel3);
+            this.simulationPanel.Controls.Add(this.fetchLabel3);
+            this.simulationPanel.Controls.Add(this.storeLabel2);
+            this.simulationPanel.Controls.Add(this.executeLabel2);
+            this.simulationPanel.Controls.Add(this.decodeLabel2);
+            this.simulationPanel.Controls.Add(this.fetchLabel2);
+            this.simulationPanel.Controls.Add(this.instructOneText);
             this.simulationPanel.Controls.Add(this.nextCycleButton);
             this.simulationPanel.Controls.Add(this.startButton);
             this.simulationPanel.Controls.Add(this.storeLabel);
@@ -243,7 +275,7 @@
             this.storeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.storeLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.storeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.storeLabel.Location = new System.Drawing.Point(251, 37);
+            this.storeLabel.Location = new System.Drawing.Point(263, 72);
             this.storeLabel.Name = "storeLabel";
             this.storeLabel.Size = new System.Drawing.Size(61, 27);
             this.storeLabel.TabIndex = 7;
@@ -255,7 +287,7 @@
             this.executeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.executeLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.executeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.executeLabel.Location = new System.Drawing.Point(160, 37);
+            this.executeLabel.Location = new System.Drawing.Point(172, 72);
             this.executeLabel.Name = "executeLabel";
             this.executeLabel.Size = new System.Drawing.Size(85, 27);
             this.executeLabel.TabIndex = 6;
@@ -267,7 +299,7 @@
             this.decodeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.decodeLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.decodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.decodeLabel.Location = new System.Drawing.Point(72, 37);
+            this.decodeLabel.Location = new System.Drawing.Point(84, 72);
             this.decodeLabel.Name = "decodeLabel";
             this.decodeLabel.Size = new System.Drawing.Size(82, 27);
             this.decodeLabel.TabIndex = 5;
@@ -279,7 +311,7 @@
             this.fetchLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fetchLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fetchLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fetchLabel.Location = new System.Drawing.Point(3, 37);
+            this.fetchLabel.Location = new System.Drawing.Point(12, 72);
             this.fetchLabel.Name = "fetchLabel";
             this.fetchLabel.Size = new System.Drawing.Size(63, 27);
             this.fetchLabel.TabIndex = 4;
@@ -382,6 +414,184 @@
             this.panel1.Size = new System.Drawing.Size(312, 604);
             this.panel1.TabIndex = 17;
             // 
+            // instructOneText
+            // 
+            this.instructOneText.Location = new System.Drawing.Point(12, 49);
+            this.instructOneText.Name = "instructOneText";
+            this.instructOneText.ReadOnly = true;
+            this.instructOneText.Size = new System.Drawing.Size(100, 20);
+            this.instructOneText.TabIndex = 19;
+            // 
+            // fetchLabel2
+            // 
+            this.fetchLabel2.AutoSize = true;
+            this.fetchLabel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fetchLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fetchLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fetchLabel2.Location = new System.Drawing.Point(12, 143);
+            this.fetchLabel2.Name = "fetchLabel2";
+            this.fetchLabel2.Size = new System.Drawing.Size(63, 27);
+            this.fetchLabel2.TabIndex = 20;
+            this.fetchLabel2.Text = "Fetch";
+            // 
+            // decodeLabel2
+            // 
+            this.decodeLabel2.AutoSize = true;
+            this.decodeLabel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.decodeLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.decodeLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.decodeLabel2.Location = new System.Drawing.Point(84, 143);
+            this.decodeLabel2.Name = "decodeLabel2";
+            this.decodeLabel2.Size = new System.Drawing.Size(82, 27);
+            this.decodeLabel2.TabIndex = 21;
+            this.decodeLabel2.Text = "Decode";
+            // 
+            // executeLabel2
+            // 
+            this.executeLabel2.AutoSize = true;
+            this.executeLabel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.executeLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.executeLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.executeLabel2.Location = new System.Drawing.Point(172, 143);
+            this.executeLabel2.Name = "executeLabel2";
+            this.executeLabel2.Size = new System.Drawing.Size(85, 27);
+            this.executeLabel2.TabIndex = 22;
+            this.executeLabel2.Text = "Execute";
+            // 
+            // storeLabel2
+            // 
+            this.storeLabel2.AutoSize = true;
+            this.storeLabel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.storeLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.storeLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.storeLabel2.Location = new System.Drawing.Point(263, 143);
+            this.storeLabel2.Name = "storeLabel2";
+            this.storeLabel2.Size = new System.Drawing.Size(61, 27);
+            this.storeLabel2.TabIndex = 23;
+            this.storeLabel2.Text = "Store";
+            // 
+            // fetchLabel3
+            // 
+            this.fetchLabel3.AutoSize = true;
+            this.fetchLabel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fetchLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fetchLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fetchLabel3.Location = new System.Drawing.Point(12, 216);
+            this.fetchLabel3.Name = "fetchLabel3";
+            this.fetchLabel3.Size = new System.Drawing.Size(63, 27);
+            this.fetchLabel3.TabIndex = 24;
+            this.fetchLabel3.Text = "Fetch";
+            // 
+            // decodeLabel3
+            // 
+            this.decodeLabel3.AutoSize = true;
+            this.decodeLabel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.decodeLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.decodeLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.decodeLabel3.Location = new System.Drawing.Point(81, 216);
+            this.decodeLabel3.Name = "decodeLabel3";
+            this.decodeLabel3.Size = new System.Drawing.Size(82, 27);
+            this.decodeLabel3.TabIndex = 25;
+            this.decodeLabel3.Text = "Decode";
+            // 
+            // executeLabe3
+            // 
+            this.executeLabe3.AutoSize = true;
+            this.executeLabe3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.executeLabe3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.executeLabe3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.executeLabe3.Location = new System.Drawing.Point(172, 216);
+            this.executeLabe3.Name = "executeLabe3";
+            this.executeLabe3.Size = new System.Drawing.Size(85, 27);
+            this.executeLabe3.TabIndex = 26;
+            this.executeLabe3.Text = "Execute";
+            this.executeLabe3.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // storeLabel3
+            // 
+            this.storeLabel3.AutoSize = true;
+            this.storeLabel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.storeLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.storeLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.storeLabel3.Location = new System.Drawing.Point(263, 216);
+            this.storeLabel3.Name = "storeLabel3";
+            this.storeLabel3.Size = new System.Drawing.Size(61, 27);
+            this.storeLabel3.TabIndex = 27;
+            this.storeLabel3.Text = "Store";
+            this.storeLabel3.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // fetchLabel4
+            // 
+            this.fetchLabel4.AutoSize = true;
+            this.fetchLabel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fetchLabel4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fetchLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fetchLabel4.Location = new System.Drawing.Point(12, 284);
+            this.fetchLabel4.Name = "fetchLabel4";
+            this.fetchLabel4.Size = new System.Drawing.Size(63, 27);
+            this.fetchLabel4.TabIndex = 28;
+            this.fetchLabel4.Text = "Fetch";
+            // 
+            // decodeLabel4
+            // 
+            this.decodeLabel4.AutoSize = true;
+            this.decodeLabel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.decodeLabel4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.decodeLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.decodeLabel4.Location = new System.Drawing.Point(84, 284);
+            this.decodeLabel4.Name = "decodeLabel4";
+            this.decodeLabel4.Size = new System.Drawing.Size(82, 27);
+            this.decodeLabel4.TabIndex = 29;
+            this.decodeLabel4.Text = "Decode";
+            // 
+            // executeLabel4
+            // 
+            this.executeLabel4.AutoSize = true;
+            this.executeLabel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.executeLabel4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.executeLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.executeLabel4.Location = new System.Drawing.Point(172, 284);
+            this.executeLabel4.Name = "executeLabel4";
+            this.executeLabel4.Size = new System.Drawing.Size(85, 27);
+            this.executeLabel4.TabIndex = 30;
+            this.executeLabel4.Text = "Execute";
+            // 
+            // storeLabel4
+            // 
+            this.storeLabel4.AutoSize = true;
+            this.storeLabel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.storeLabel4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.storeLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.storeLabel4.Location = new System.Drawing.Point(263, 284);
+            this.storeLabel4.Name = "storeLabel4";
+            this.storeLabel4.Size = new System.Drawing.Size(61, 27);
+            this.storeLabel4.TabIndex = 31;
+            this.storeLabel4.Text = "Store";
+            // 
+            // instructTextBox2
+            // 
+            this.instructTextBox2.Location = new System.Drawing.Point(12, 120);
+            this.instructTextBox2.Name = "instructTextBox2";
+            this.instructTextBox2.ReadOnly = true;
+            this.instructTextBox2.Size = new System.Drawing.Size(100, 20);
+            this.instructTextBox2.TabIndex = 32;
+            // 
+            // instructTextBox4
+            // 
+            this.instructTextBox4.Location = new System.Drawing.Point(12, 261);
+            this.instructTextBox4.Name = "instructTextBox4";
+            this.instructTextBox4.ReadOnly = true;
+            this.instructTextBox4.Size = new System.Drawing.Size(100, 20);
+            this.instructTextBox4.TabIndex = 33;
+            // 
+            // instructTextBox3
+            // 
+            this.instructTextBox3.Location = new System.Drawing.Point(12, 193);
+            this.instructTextBox3.Name = "instructTextBox3";
+            this.instructTextBox3.ReadOnly = true;
+            this.instructTextBox3.Size = new System.Drawing.Size(100, 20);
+            this.instructTextBox3.TabIndex = 34;
+            // 
             // GUIForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -439,6 +649,22 @@
         private System.Windows.Forms.TextBox pipelineOutputTextBox;
         private System.Windows.Forms.Label pipelineOutputLabel;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox instructTextBox3;
+        private System.Windows.Forms.TextBox instructTextBox4;
+        private System.Windows.Forms.TextBox instructTextBox2;
+        private System.Windows.Forms.Label storeLabel4;
+        private System.Windows.Forms.Label executeLabel4;
+        private System.Windows.Forms.Label decodeLabel4;
+        private System.Windows.Forms.Label fetchLabel4;
+        private System.Windows.Forms.Label storeLabel3;
+        private System.Windows.Forms.Label executeLabe3;
+        private System.Windows.Forms.Label decodeLabel3;
+        private System.Windows.Forms.Label fetchLabel3;
+        private System.Windows.Forms.Label storeLabel2;
+        private System.Windows.Forms.Label executeLabel2;
+        private System.Windows.Forms.Label decodeLabel2;
+        private System.Windows.Forms.Label fetchLabel2;
+        private System.Windows.Forms.TextBox instructOneText;
     }
 }
 

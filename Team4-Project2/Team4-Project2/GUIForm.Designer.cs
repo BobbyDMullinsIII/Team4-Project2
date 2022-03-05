@@ -505,7 +505,6 @@
             this.executeLabe3.Size = new System.Drawing.Size(85, 27);
             this.executeLabe3.TabIndex = 26;
             this.executeLabe3.Text = "Execute";
-            this.executeLabe3.Click += new System.EventHandler(this.label7_Click);
             // 
             // storeLabel3
             // 
@@ -518,7 +517,6 @@
             this.storeLabel3.Size = new System.Drawing.Size(61, 27);
             this.storeLabel3.TabIndex = 27;
             this.storeLabel3.Text = "Store";
-            this.storeLabel3.Click += new System.EventHandler(this.label8_Click);
             // 
             // fetchLabel4
             // 

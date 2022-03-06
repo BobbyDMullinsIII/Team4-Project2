@@ -144,6 +144,12 @@ namespace Team4_Project2
             //Else, start static pipeline simulation
             else
             {
+                string instructionsText = assemblyTextBox.Text;
+                String[] instructions = instructionsText.Split();
+                
+
+
+
                 //Sets counter to 1, equal to fetch phase
                 phaseCounter++;
 
@@ -184,7 +190,48 @@ namespace Team4_Project2
             string decodeOutput = "";
             string executeOutput = "";
             string storeOutput = "";
+            string instructionsText = assemblyTextBox.Text;
+            String[] instructions = instructionsText.Split();
+            int i = 0;
+            switch (instructions[i])
+            {
+                case string n when (n == "LDRE"):
+                    break;
+                case string n when (n == "STRE"):
+                    break;
+                case string n when (n == "COMP"):
+                    break;
+                case string n when (n == "ANDD"):
+                    break;
+                case string n when (n == "OORR"):
+                    break;
+                case string n when (n == "BRLT"):
+                    break;
+                case string n when (n == "BRGT"):
+                    break;
+                case string n when (n == "BREQ"):
+                    break;
+                case string n when (n == "BRAN"):
+                    break;
+                case string n when (n == "ADDI"):
+                    break;
+                case string n when (n == "SUBT"):
+                    break;
+                case string n when (n == "FADD"):
+                    break;
+                case string n when (n == "FSUB"):
+                    break;
+                case string n when (n == "FMUL"):
+                    break;
+                case string n when (n == "FDIV"):
+                    break;
+                case string n when (n == "NOOP"):
+                    break;
+                case string n when (n == "STOP"):
 
+                 
+                    break;
+            }
 
             //Switch selects which phase we are in currently
             switch (phaseCounter)
@@ -237,5 +284,15 @@ namespace Team4_Project2
 
         }//end resetLabelColors()
         #endregion
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

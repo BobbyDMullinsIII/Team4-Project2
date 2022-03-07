@@ -702,6 +702,64 @@ namespace Team4_Project2
         }//end store()
         #endregion
 
+        //Pipeline Output Methods
+        #region outputPipelineStats() Method
+        /// <summary>
+        /// Method for outputting static pipeline simulation statistics
+        /// </summary>
+        /// <param name="structural">Structural hazards</param>
+        /// <param name="data">Data hazards</param>
+        /// <param name="control">Control hazards</param>
+        /// <param name="RAW">read-after-write dependencies</param>
+        /// <param name="WAR">write-after-read dependencies</param>
+        /// <param name="WAW">write-after-write dependencies</param>
+        /// <param name="fetch">Fetch cycles stalled</param>
+        /// <param name="decode">Decode cycles stalled</param>
+        /// <param name="execute">Execute cycles stalled</param>
+        /// <param name="store">Store cycles stalled</param>
+        /// <param name="cycles">Total cycles of static pipeline simulation</param>
+        /// <returns>Statistics of the pipeline from the static pipeline simulation</returns>
+        public static string outputPipelineStats(int structural, 
+                                                 int data, 
+                                                 int control, 
+                                                 int RAW, 
+                                                 int WAR, 
+                                                 int WAW,
+                                                 int fetch, 
+                                                 int decode,
+                                                 int execute, 
+                                                 int store, 
+                                                 int cycles)
+        {
+            return $"Hazards\r\n" +
+                   $"-------\r\n" +
+                   $"structural: {structural}\r\n" +
+                   $"data: {data}\r\n" +
+                   $"control: {control}\r\n" +
+                   $"\r\n" +
+
+                   $"Dependencies\r\n" +
+                   $"------------\r\n" +
+                   $"read-after-write: {RAW}\r\n" +
+                   $"write-after-read: {WAR}\r\n" +
+                   $"write-after-write: {WAW}\r\n" +
+                   $"\r\n" +
+
+                   $"Cycles Stalled\r\n" +
+                   $"--------------\r\n" +
+                   $"fetch: {fetch}\r\n" +
+                   $"decode: {decode}\r\n" +
+                   $"execute: {execute}\r\n" +
+                   $"store/finish: {store}\r\n" +
+                   $"\r\n" +
+
+                   $"Total Cycles\r\n" +
+                   $"------------\r\n" +
+                   $"{cycles}\r\n"; 
+
+        }//end outputPipelineStats()
+        #endregion
+
     }//end ProgramController class
 
 }//end Team4_Project2 namespace

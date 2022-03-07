@@ -702,6 +702,30 @@ namespace Team4_Project2
         }//end store()
         #endregion
 
+        #region checkAddressing() Method
+        /// <summary>
+        /// Method for figuring out addressing mode
+        /// </summary>
+        /// <param name="instruction">instruction to get addressing mode of</param>
+        /// <returns></returns>
+        public static string checkAddressing(string[] instruction)
+        {
+            if(instruction[2].Length == 2)
+            {
+                return "r";
+            }
+
+            else if(instruction[2].Contains('#'))
+            {
+                return "i";
+            }
+
+            else
+            {
+                return "m";
+            }
+        }
+        #endregion
     }//end ProgramController class
 
 }//end Team4_Project2 namespace

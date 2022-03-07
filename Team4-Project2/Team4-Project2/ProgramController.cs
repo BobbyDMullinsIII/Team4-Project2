@@ -732,21 +732,21 @@ namespace Team4_Project2
                                                  int cycles)
         {
             return $"Hazards\r\n" +
-                   $"-------\r\n" +
+                   $"=======\r\n" +
                    $"structural: {structural}\r\n" +
                    $"data: {data}\r\n" +
                    $"control: {control}\r\n" +
                    $"\r\n" +
 
                    $"Dependencies\r\n" +
-                   $"------------\r\n" +
+                   $"============\r\n" +
                    $"read-after-write: {RAW}\r\n" +
                    $"write-after-read: {WAR}\r\n" +
                    $"write-after-write: {WAW}\r\n" +
                    $"\r\n" +
 
                    $"Cycles Stalled\r\n" +
-                   $"--------------\r\n" +
+                   $"==============\r\n" +
                    $"fetch: {fetch}\r\n" +
                    $"decode: {decode}\r\n" +
                    $"execute: {execute}\r\n" +
@@ -754,7 +754,7 @@ namespace Team4_Project2
                    $"\r\n" +
 
                    $"Total Cycles\r\n" +
-                   $"------------\r\n" +
+                   $"============\r\n" +
                    $"{cycles}\r\n"; 
 
         }//end outputPipelineStats()

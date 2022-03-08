@@ -639,6 +639,7 @@ namespace Team4_Project2
             //=============================//
             //INSERT CODE FOR FETCHING HERE//
             //=============================//
+            int i = 0;
             switch (instructions[i])
             {
                 case string n when (n == "LDRE"):
@@ -763,14 +764,14 @@ namespace Team4_Project2
         /// </summary>
         /// <param name="instruction">instruction to get addressing mode of</param>
         /// <returns></returns>
-        public static string checkAddressing(string[] instruction)
+        public static string checkAddressing(string instruction)
         {
-            if(instruction[2].Length == 2)
+            if(instruction[0] == 'R')
             {
                 return "r";
             }
 
-            else if(instruction[2].Contains('#'))
+            else if(instruction[0] == '#')
             {
                 return "i";
             }

@@ -33,6 +33,12 @@ namespace Team4_Project2
                                 //2 = decode phase
                                 //3 = execute phase
                                 //4 = store/finish phase
+                                
+        int phaseCounterTwo;
+        int phaseCounterThree;
+        int phaseCounterFour;
+        List<string> instructions = new List<string>();
+        
         List<int[]> tempNums = new List<int[]>()
         {
             new int[4] { 0, 0, 0, 0},
@@ -40,6 +46,7 @@ namespace Team4_Project2
             new int[4] { 0, 0, 0, 0},
             new int[4] { 0, 0, 0, 0}
         };
+        
 
         public GUIForm()
         {
@@ -151,9 +158,10 @@ namespace Team4_Project2
             //Else, start static pipeline simulation
             else
             {
-                string instructionsText = assemblyTextBox.Text;
-                String[] instructions = instructionsText.Split();
-                
+                foreach (string var in assemblyTextBox.Text.Split())
+                {
+                    instructions.Add(var);
+                }
 
 
 
@@ -180,25 +188,16 @@ namespace Team4_Project2
             //Currently, each phase is only 1 clock cycle, but will need//
             //to be changed depending on what instruction and registers //
             //==========================================================//
-
-            //If phaseCounter is not on final phase, count up to next phase
-            if (phaseCounter < 4)
-            {
-                phaseCounter++;
-            }
-            //Else, restart to go to first phase for next instruction
-            else
-            {
-                phaseCounter = 1;
-            }
+            if(phaseCounter>0)                             //decrement counter 
+            phaseCounter--;
+            if(phaseCounterTwo>0)
+            phaseCounterTwo--;
+            if(phaseCounterThree>0)
+            phaseCounterThree--;
+            if(phaseCounterFour>0)
+            phaseCounterFour--;
 
             string placeholder = "";
-            string fetchOutput = "";
-            string decodeOutput = "";
-            string executeOutput = "";
-            string storeOutput = "";
-            string instructionsText = assemblyTextBox.Text;
-            String[] instructions = instructionsText.Split();
             int i = 0;
             switch (instructions[i])
             {
@@ -315,6 +314,16 @@ namespace Team4_Project2
         }
 
         private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pipelineOutputTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void assemblyTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }

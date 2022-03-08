@@ -38,14 +38,9 @@ namespace Team4_Project2
         int phaseCounterThree;
         int phaseCounterFour;
         List<string> instructions = new List<string>();
+
+        List<int[]> tempNums = new List<int[]>();
         
-        List<int[]> tempNums = new List<int[]>()
-        {
-            new int[4] { 0, 0, 0, 0},
-            new int[4] { 0, 0, 0, 0},
-            new int[4] { 0, 0, 0, 0},
-            new int[4] { 0, 0, 0, 0}
-        };
         
 
         public GUIForm()
@@ -164,7 +159,7 @@ namespace Team4_Project2
                 }
 
 
-
+                assemblyTextBox.ReadOnly = true;
                 //Sets counter to 1, equal to fetch phase
                 phaseCounter++;
 

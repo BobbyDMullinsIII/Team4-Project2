@@ -632,7 +632,7 @@ namespace Team4_Project2
         /// </summary>
         /// <param name="fetchInput">Input instruction to fetch</param>
         /// <returns></returns>
-        public static string fetch(List<string> instructions, List<Instruction> pipeInts)
+        public static string fetch(List<string> instructions, List<Instruction> pipeInts, int progCount)
         {
             string fetchOutput = "";
 
@@ -646,7 +646,7 @@ namespace Team4_Project2
                     char loadType = checkAddressing(instructions[i+2]);
                     if(loadType == 'R')
                     { 
-                        Instruction int = new Instruction("LDRERR", 1, 1, 1, 2);
+                        Instruction inst = new Instruction(progCount += 4, 1, 1, 1, 2);
                     }
                     else if(loadType== '#')
                     { 

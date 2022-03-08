@@ -8,10 +8,10 @@ namespace Team4_Project2
 {
     public class Instruction
     {
-        string name = String.Empty;
+        int name = 0;
         int fetch, decode, execute, store = 0;
 
-        public Instruction(string name, int fetch, int decode, int execute, int store)
+        public Instruction(int name, int fetch, int decode, int execute, int store)
         {
             this.name = name;
             this.fetch = fetch;

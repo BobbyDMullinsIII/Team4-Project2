@@ -37,6 +37,7 @@ namespace Team4_Project2
         int phaseCounterTwo;
         int phaseCounterThree;
         int phaseCounterFour;
+        int progCount = 0;
         List<string> instructions = new List<string>();
 
         List<int[]> tempNums = new List<int[]>();

@@ -632,14 +632,70 @@ namespace Team4_Project2
         /// </summary>
         /// <param name="fetchInput">Input instruction to fetch</param>
         /// <returns></returns>
-        public static string fetch(string fetchInput)
+        public static string fetch(List<string> instructions, List<int> pipeInts)
         {
             string fetchOutput = "";
 
             //=============================//
             //INSERT CODE FOR FETCHING HERE//
             //=============================//
+            int i = 0;
+            switch (instructions[i])
+            {
+                case string n when (n == "LDRE"):
+                    //counter += register = 5, immediate = 5, memory = 7
+                    break;
+                case string n when (n == "STRE"):
+                    //counter += 7
+                    break;
+                case string n when (n == "COMP"):
+                    //counter += 4
+                    break;
+                case string n when (n == "ANDD"):
+                    //counter += 4
+                    break;
+                case string n when (n == "OORR"):
+                    //counter += 4
+                    break;
+                case string n when (n == "BRLT"):
+                    //counter += 4
+                    break;
+                case string n when (n == "BRGT"):
+                    //counter += 4
+                    break;
+                case string n when (n == "BREQ"):
+                    //counter += 4
+                    break;
+                case string n when (n == "BRAN"):
+                    //counter += 4
+                    break;
+                case string n when (n == "ADDI"):
+                    //counter += 4
+                    break;
+                case string n when (n == "SUBT"):
+                    //counter += 4
+                    break;
+                case string n when (n == "FADD"):
+                    //counter += 5
+                    break;
+                case string n when (n == "FSUB"):
+                    //counter += 5
+                    break;
+                case string n when (n == "FMUL"):
+                    //counter += 8
+                    break;
+                case string n when (n == "FDIV"):
+                    //counter += 13
+                    break;
+                case string n when (n == "NOOP"):
+                    //counter += 4
+                    break;
+                case string n when (n == "STOP"):
+                    //counter += 4
 
+
+                    break;
+            }
             return fetchOutput;
 
         }//end fetch()

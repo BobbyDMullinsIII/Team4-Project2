@@ -294,5 +294,15 @@ namespace Team4_Project2
         {
 
         }
+
+        private void pipelineOutputTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void assemblyTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

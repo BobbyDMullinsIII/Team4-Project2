@@ -43,7 +43,10 @@ namespace Team4_Project2
         List<Instruction> pipeInts = new List<Instruction>();
         string instLit = string.Empty;
         List<Instruction> pipeDecode = new List<Instruction>();
+        List<Instruction> pipeExecute = new List<Instruction>();
+        List<Instruction> pipeStore = new List<Instruction>();
 
+        string test = "";
 
 
         public GUIForm()
@@ -182,6 +185,7 @@ namespace Team4_Project2
         /// <param name="e">arguments for event (auto-generated, unused here)</param>
         private void nextCycleButton_Click(object sender, EventArgs e)
         {
+            
             //==========================================================//
             //Currently, each phase is only 1 clock cycle, but will need//
             //to be changed depending on what instruction and registers //
@@ -197,14 +201,33 @@ namespace Team4_Project2
 
             (pipeInts, progCount, programIndex,instLit) = ProgramController.fetch(instructions, pipeInts, progCount, programIndex);
             instructOneText.Text = instLit;
-            pipeInts[0].Fetch = pipeInts[0].Fetch--;
 
+            //Store
+            if (pipeExecute.Count > 0)
+            {
+                
+            }
+            
+            //Execute
+            if (pipeDecode.Count > 0)
+            {
+
+            }
+
+            //Decode
+            if (pipeInts.Count > 0)
+            {
+                ProgramController.decode(pipeDecode);
+                instructTextBox2.Text = test;
+                
+            }
+            pipeInts[0].Fetch = pipeInts[0].Fetch - 1;
+            test = instLit;
             if (pipeInts[0].Fetch == 0)
             {
                 pipeDecode.Add(pipeInts[0]);
                 pipeInts.RemoveAt(0);
             }
-            ProgramController.decode(pipeDecode);
         }
         #endregion
 

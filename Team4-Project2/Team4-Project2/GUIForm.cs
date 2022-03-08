@@ -39,10 +39,11 @@ namespace Team4_Project2
         int phaseCounterFour;
         int progCount = 0;
         List<string> instructions = new List<string>();
+        int programIndex = 0;
+        List<Instruction> pipeInts = new List<Instruction>();
+        string instLit = string.Empty;
 
-        List<int[]> tempNums = new List<int[]>();
-        
-        
+
 
         public GUIForm()
         {
@@ -191,7 +192,10 @@ namespace Team4_Project2
             if(phaseCounterThree>0)
             phaseCounterThree--;
             if(phaseCounterFour>0)
-            phaseCounterFour--;            
+            phaseCounterFour--;
+
+            (pipeInts, progCount, programIndex,instLit) = ProgramController.fetch(instructions, pipeInts, progCount, programIndex);
+            instructOneText.Text = instLit;
         }
         #endregion
 

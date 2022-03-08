@@ -37,7 +37,7 @@ namespace Team4_Project2
         int phaseCounterTwo;
         int phaseCounterThree;
         int phaseCounterFour;
-        public List<string> instructions = new List<string>();
+        List<string> instructions = new List<string>();
 
         List<int[]> tempNums = new List<int[]>();
         
@@ -193,7 +193,63 @@ namespace Team4_Project2
             phaseCounterFour--;
 
             string placeholder = "";
-           
+            int i = 0;
+            switch (instructions[i])
+            {
+                case string n when (n == "LDRE"):
+                    //counter += register = 5, immediate = 5, memory = 7
+                    break;
+                case string n when (n == "STRE"):
+                    //counter += 7
+                    break;
+                case string n when (n == "COMP"):
+                    //counter += 4
+                    break;
+                case string n when (n == "ANDD"):
+                    //counter += 4
+                    break;
+                case string n when (n == "OORR"):
+                    //counter += 4
+                    break;
+                case string n when (n == "BRLT"):
+                    //counter += 4
+                    break;
+                case string n when (n == "BRGT"):
+                    //counter += 4
+                    break;
+                case string n when (n == "BREQ"):
+                    //counter += 4
+                    break;
+                case string n when (n == "BRAN"):
+                    //counter += 4
+                    break;
+                case string n when (n == "ADDI"):
+                    //counter += 4
+                    break;
+                case string n when (n == "SUBT"):
+                    //counter += 4
+                    break;
+                case string n when (n == "FADD"):
+                    //counter += 5
+                    break;
+                case string n when (n == "FSUB"):
+                    //counter += 5
+                    break;
+                case string n when (n == "FMUL"):
+                    //counter += 8
+                    break;
+                case string n when (n == "FDIV"):
+                    //counter += 13
+                    break;
+                case string n when (n == "NOOP"):
+                    //counter += 4
+                    break;
+                case string n when (n == "STOP"):
+                    //counter += 4
+
+
+                    break;
+            }
 
             //Switch selects which phase we are in currently
             switch (phaseCounter)
@@ -202,6 +258,7 @@ namespace Team4_Project2
                 case 1:
                     resetPhaseLabelColors();
                     fetchLabel.ForeColor = Color.Red;
+                    ProgramController.fetch(placeholder);
                     break;
 
                 //Decode phase

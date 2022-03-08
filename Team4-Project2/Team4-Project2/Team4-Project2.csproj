@@ -54,6 +54,7 @@
       <DependentUpon>GUIForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Driver.cs" />
+    <Compile Include="Instruction.cs" />
     <Compile Include="ProgramController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUIForm.resx">

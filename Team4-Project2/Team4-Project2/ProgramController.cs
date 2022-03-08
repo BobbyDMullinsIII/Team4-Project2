@@ -645,20 +645,24 @@ namespace Team4_Project2
                         pipeInts.Add( LDRERR);
                         
                         instLit += instructions[i];
+                        instLit += " ";
                         instLit += instructions[i+1];
+                        instLit += " ";
                         instLit += instructions[i+2];
-                        i += 3;
+                        i += 4;
 
                     }
                     else if(loadType== '#')
                     {
                         Instruction LDRERI = new Instruction(progCount += 4, 1, 1, 1, 2, Convert.ToInt32(instructions[i + 1][1]));
                         pipeInts.Add(LDRERI);
-                        
+
                         instLit += instructions[i];
+                        instLit += " ";
                         instLit += instructions[i + 1];
+                        instLit += " ";
                         instLit += instructions[i + 2];
-                        i += 3;
+                        i += 4;
                     }
                     else 
                     {
@@ -666,9 +670,11 @@ namespace Team4_Project2
                         pipeInts.Add(LDRERM);
                         
                         instLit += instructions[i];
+                        instLit += " ";
                         instLit += instructions[i + 1];
+                        instLit += " ";
                         instLit += instructions[i + 2];
-                        i += 3;
+                        i += 4;
                     }
                     break;
 
@@ -676,9 +682,11 @@ namespace Team4_Project2
                     Instruction STRE = new Instruction(progCount += 4, 1, 1, 3, 2, Convert.ToInt32(instructions[i + 1][1]));
                     pipeInts.Add(STRE);
                     instLit += instructions[i];
+                    instLit += " ";
                     instLit += instructions[i + 1];
+                    instLit += " ";
                     instLit += instructions[i + 2];
-                    i += 3;
+                    i += 4;
                     break;
 
 
@@ -686,103 +694,130 @@ namespace Team4_Project2
                     Instruction COMP = new Instruction(progCount += 4, 1, 1, 1, 2, Convert.ToInt32(instructions[i + 1][1]));
                     pipeInts.Add(COMP);
                     instLit += instructions[i];
+                    instLit += " ";
                     instLit += instructions[i + 1];
+                    instLit += " ";
                     instLit += instructions[i + 2];
+                    instLit += " ";
                     instLit += instructions[i + 3];
-                    i += 4;
+                    i += 5;
                     break;
                 case string n when (n == "ANDD"):
                     Instruction ANDD = new Instruction(progCount += 4, 1, 1, 1, 2, Convert.ToInt32(instructions[i + 1][1]));
                     pipeInts.Add(ANDD);
                     instLit += instructions[i];
+                    instLit += " ";
                     instLit += instructions[i + 1];
+                    instLit += " ";
                     instLit += instructions[i + 2];
+                    instLit += " ";
                     instLit += instructions[i + 3];
-                    i += 4;
+                    i += 5;
                     break;
 
                 case string n when (n == "OORR"):
                     Instruction OORR = new Instruction(progCount += 4, 1, 1, 1, 2, Convert.ToInt32(instructions[i + 1][1]));
                     pipeInts.Add(OORR);
                     instLit += instructions[i];
+                    instLit += " ";
                     instLit += instructions[i + 1];
+                    instLit += " ";
                     instLit += instructions[i + 2];
+                    instLit += " ";
                     instLit += instructions[i + 3];
-                    i += 4;
+                    i += 5;
                     break;
 
                 case string n when (n == "BRLT"):
                     Instruction BRLT = new Instruction(progCount += 4, 1, 1, 1, 1, Convert.ToInt32(instructions[i + 1][1]));
                     pipeInts.Add(BRLT);
                     instLit += instructions[i];
+                    instLit += " ";
                     instLit += instructions[i + 1];
+                    instLit += " ";
                     instLit += instructions[i + 2];
-                    i += 3;
+                    i += 4;
                     break;
 
                 case string n when (n == "BRGT"):
                     Instruction BRGT = new Instruction(progCount += 4, 1, 1, 1, 1, Convert.ToInt32(instructions[i + 1][1]));
                     pipeInts.Add(BRGT);
                     instLit += instructions[i];
+                    instLit += " ";
                     instLit += instructions[i + 1];
+                    instLit += " ";
                     instLit += instructions[i + 2];
-                    i += 3;
+                    i += 4;
                     break;
 
                 case string n when (n == "BREQ"):
                     Instruction BREQ = new Instruction(progCount += 4, 1, 1, 1, 1, Convert.ToInt32(instructions[i + 1][1]));
                     pipeInts.Add(BREQ);
                     instLit += instructions[i];
+                    instLit += " ";
                     instLit += instructions[i + 1];
+                    instLit += " ";
                     instLit += instructions[i + 2];
-                    i += 3;
+                    i += 4;
                     break;
 
                 case string n when (n == "BRAN"):
                     Instruction BRAN = new Instruction(progCount += 4, 1, 1, 1, 1, Convert.ToInt32(instructions[i + 1][1]));
                     pipeInts.Add(BRAN);
                     instLit += instructions[i];
+                    instLit += " ";
                     instLit += instructions[i + 1];
+                    instLit += " ";
                     instLit += instructions[i + 2];
-                    i += 3;
+                    i += 4;
                     break;
 
                 case string n when (n == "ADDI"):
                     Instruction ADDI = new Instruction(progCount += 4, 1, 1, 1, 2, Convert.ToInt32(instructions[i + 1][1]));
                     pipeInts.Add(ADDI);
                     instLit += instructions[i];
+                    instLit += " ";
                     instLit += instructions[i + 1];
+                    instLit += " ";
                     instLit += instructions[i + 2];
-                    i += 4;
+                    i += 5;
                     break;
 
                 case string n when (n == "SUBT"):
                     Instruction SUBT = new Instruction(progCount += 4, 1, 1, 1, 2, Convert.ToInt32(instructions[i + 1][1]));
                     pipeInts.Add(SUBT);
                     instLit += instructions[i];
+                    instLit += " ";
                     instLit += instructions[i + 1];
+                    instLit += " ";
                     instLit += instructions[i + 2];
-                    i += 4;
+                    i += 5;
                     break;
 
                 case string n when (n == "FADD"):
                     Instruction FADD = new Instruction(progCount += 4, 1, 1, 2, 2, Convert.ToInt32(instructions[i + 1][1]));
                     pipeInts.Add(FADD);
                     instLit += instructions[i];
+                    instLit += " ";
                     instLit += instructions[i + 1];
+                    instLit += " ";
                     instLit += instructions[i + 2];
+                    instLit += " ";
                     instLit += instructions[i + 3];
-                    i += 4;
+                    i += 5;
                     break;
 
                 case string n when (n == "FSUB"):
                     Instruction FSUB = new Instruction(progCount += 4, 1, 1, 2, 2, Convert.ToInt32(instructions[i + 1][1]));
                     pipeInts.Add(FSUB);
                     instLit += instructions[i];
+                    instLit += " ";
                     instLit += instructions[i + 1];
+                    instLit += " ";
                     instLit += instructions[i + 2];
+                    instLit += " ";
                     instLit += instructions[i + 3];
-                    i += 4;
+                    i += 5;
                     break;
 
 
@@ -791,20 +826,26 @@ namespace Team4_Project2
                     pipeInts.Add(FMUL);
                     
                     instLit += instructions[i];
+                    instLit += " ";
                     instLit += instructions[i + 1];
+                    instLit += " ";
                     instLit += instructions[i + 2];
+                    instLit += " ";
                     instLit += instructions[i + 3];
-                    i += 4;
+                    i += 5;
                     break;
                 case string n when (n == "FDIV"):
                     Instruction FDIV = new Instruction(progCount += 4, 1, 1, 10, 2, Convert.ToInt32(instructions[i + 1][1]));
                     pipeInts.Add(FDIV);
                     
                     instLit += instructions[i];
+                    instLit += " ";
                     instLit += instructions[i + 1];
+                    instLit += " ";
                     instLit += instructions[i + 2];
+                    instLit += " ";
                     instLit += instructions[i + 3];
-                    i += 4;
+                    i += 5;
                     break;
 
                 case string n when (n == "NOOP"):
@@ -812,19 +853,18 @@ namespace Team4_Project2
                     pipeInts.Add(NOOP);
                     
                     instLit += instructions[i];
+                    instLit += " ";
                     instLit += instructions[i + 1];
+                    instLit += " ";
                     instLit += instructions[i + 2];
-                    i += 3;
+                    i += 4;
                     break;
 
                 case string n when (n == "STOP"):
-                    Instruction STOP = new Instruction(progCount += 4, 1, 1, 1, 1, Convert.ToInt32(instructions[i + 1][1]));
+                    Instruction STOP = new Instruction(progCount += 4, 1, 1, 1, 1, -1);
                     pipeInts.Add(STOP);
-                    
                     instLit += instructions[i];
-                    instLit += instructions[i + 1];
-                    instLit += instructions[i + 2];
-                    i += 3;
+
                     break;
             }
 

@@ -42,6 +42,7 @@ namespace Team4_Project2
         int programIndex = 0;
         List<Instruction> pipeInts = new List<Instruction>();
         string instLit = string.Empty;
+        List<Instruction> pipeDecode = new List<Instruction>();
 
 
 
@@ -196,6 +197,14 @@ namespace Team4_Project2
 
             (pipeInts, progCount, programIndex,instLit) = ProgramController.fetch(instructions, pipeInts, progCount, programIndex);
             instructOneText.Text = instLit;
+            pipeInts[0].Fetch = pipeInts[0].Fetch--;
+
+            if (pipeInts[0].Fetch == 0)
+            {
+                pipeDecode.Add(pipeInts[0]);
+                pipeInts.RemoveAt(0);
+            }
+            ProgramController.decode(pipeDecode);
         }
         #endregion
 

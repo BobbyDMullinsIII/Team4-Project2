@@ -50,6 +50,12 @@ namespace Team4_Project2
 
         }//end Instruction()
 
+        public int Fetch
+        {
+            get { return fetch; }
+            set { fetch = value; }
+        }
+
     }//end Instruction class
 
 }//end Team4_Project2 namespace

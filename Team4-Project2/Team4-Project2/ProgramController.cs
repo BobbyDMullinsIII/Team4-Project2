@@ -879,9 +879,15 @@ namespace Team4_Project2
         /// </summary>
         /// <param name="decodeInput">Input instruction to decode</param>
         /// <returns></returns>
-        public static string decode(string decodeInput)
+        public static string decode(List<Instruction> pipeInts)
         {
             string decodeOutput = "";
+            int structuralHazard = 0;
+
+            if(pipeInts.Count > 2)
+            {
+                structuralHazard += 2;
+            }
 
             //=============================//
             //INSERT CODE FOR DECODING HERE//

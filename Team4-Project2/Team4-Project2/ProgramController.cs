@@ -632,7 +632,7 @@ namespace Team4_Project2
         /// </summary>
         /// <param name="fetchInput">Input instruction to fetch</param>
         /// <returns></returns>
-        public static string fetch(List<string> instructions, List<int> pipeInts)
+        public static string fetch(List<string> instructions, List<Instruction> pipeInts)
         {
             string fetchOutput = "";
 
@@ -643,7 +643,19 @@ namespace Team4_Project2
             switch (instructions[i])
             {
                 case string n when (n == "LDRE"):
-                    //counter += register = 5, immediate = 5, memory = 7
+                    char loadType = checkAddressing(instructions[i+2]);
+                    if(loadType == 'R')
+                    { 
+                        Instruction int = new Instruction("LDRERR", 1, 1, 1, 2);
+                    }
+                    else if(loadType== '#')
+                    { 
+                        
+                    }
+                    else 
+                    {
+
+                    }
                     break;
                 case string n when (n == "STRE"):
                     //counter += 7
@@ -764,21 +776,20 @@ namespace Team4_Project2
         /// </summary>
         /// <param name="instruction">instruction to get addressing mode of</param>
         /// <returns></returns>
-        public static string checkAddressing(string instruction)
+        public static Char checkAddressing(string instruction)
         {
             if(instruction[0] == 'R')
             {
-                return "r";
-            }
+                return 'r';            }
 
             else if(instruction[0] == '#')
             {
-                return "i";
+                return 'i';
             }
 
             else
             {
-                return "m";
+                return 'm';
             }
         }
         #endregion

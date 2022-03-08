@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 
 namespace Team4_Project2
 {
-    class Instruction
+    public class Instruction
     {
         string name = String.Empty;
         int fetch, decode, execute, store = 0;
 
-        public Instruction(string name, int Fetch, int decode, int execute, int store)
+        public Instruction(string name, int fetch, int decode, int execute, int store)
         {
             this.name = name;
             this.fetch = fetch;
+            this.decode = decode;
+            this.execute = execute;
+            this.store = store;
 
         }
     }

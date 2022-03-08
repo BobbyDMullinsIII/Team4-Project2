@@ -33,10 +33,20 @@ namespace Team4_Project2
                                 //2 = decode phase
                                 //3 = execute phase
                                 //4 = store/finish phase
+                                
         int phaseCounterTwo;
         int phaseCounterThree;
         int phaseCounterFour;
         List<string> instructions = new List<string>();
+        
+        List<int[]> tempNums = new List<int[]>()
+        {
+            new int[4] { 0, 0, 0, 0},
+            new int[4] { 0, 0, 0, 0},
+            new int[4] { 0, 0, 0, 0},
+            new int[4] { 0, 0, 0, 0}
+        };
+        
 
         public GUIForm()
         {
@@ -192,40 +202,57 @@ namespace Team4_Project2
             switch (instructions[i])
             {
                 case string n when (n == "LDRE"):
+                    //counter += register = 5, immediate = 5, memory = 7
                     break;
                 case string n when (n == "STRE"):
+                    //counter += 7
                     break;
                 case string n when (n == "COMP"):
+                    //counter += 4
                     break;
                 case string n when (n == "ANDD"):
+                    //counter += 4
                     break;
                 case string n when (n == "OORR"):
+                    //counter += 4
                     break;
                 case string n when (n == "BRLT"):
+                    //counter += 4
                     break;
                 case string n when (n == "BRGT"):
+                    //counter += 4
                     break;
                 case string n when (n == "BREQ"):
+                    //counter += 4
                     break;
                 case string n when (n == "BRAN"):
+                    //counter += 4
                     break;
                 case string n when (n == "ADDI"):
+                    //counter += 4
                     break;
                 case string n when (n == "SUBT"):
+                    //counter += 4
                     break;
                 case string n when (n == "FADD"):
+                    //counter += 5
                     break;
                 case string n when (n == "FSUB"):
+                    //counter += 5
                     break;
                 case string n when (n == "FMUL"):
+                    //counter += 8
                     break;
                 case string n when (n == "FDIV"):
+                    //counter += 13
                     break;
                 case string n when (n == "NOOP"):
+                    //counter += 4
                     break;
                 case string n when (n == "STOP"):
+                    //counter += 4
 
-                 
+
                     break;
             }
 

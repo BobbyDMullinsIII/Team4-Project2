@@ -46,7 +46,9 @@ namespace Team4_Project2
         List<Instruction> pipeExecute = new List<Instruction>();
         List<Instruction> pipeStore = new List<Instruction>();
 
-        string test = "";
+        string decodeInst = "";
+        string executeInst = "";
+        string storeInst = "";
 
 
         public GUIForm()
@@ -203,26 +205,31 @@ namespace Team4_Project2
             instructOneText.Text = instLit;
 
             //Store
-            if (pipeExecute.Count > 0)
+            if (pipeStore.Count > 0)
             {
-                
+                instructTextBox4.Text = storeInst;
             }
             
             //Execute
-            if (pipeDecode.Count > 0)
+            if (pipeExecute.Count > 0)
             {
-
+                instructTextBox3.Text = executeInst;
+                storeInst = executeInst;
+                pipeStore.Add(pipeExecute[0]);
+                pipeExecute.RemoveAt(0);
             }
 
             //Decode
-            if (pipeInts.Count > 0)
+            if (pipeDecode.Count > 0)
             {
                 ProgramController.decode(pipeDecode);
-                instructTextBox2.Text = test;
-                
+                instructTextBox2.Text = decodeInst;
+                executeInst = decodeInst;
+                pipeExecute.Add(pipeDecode[0]);
+                pipeDecode.RemoveAt(0);
             }
             pipeInts[0].Fetch = pipeInts[0].Fetch - 1;
-            test = instLit;
+            decodeInst = instLit;
             if (pipeInts[0].Fetch == 0)
             {
                 pipeDecode.Add(pipeInts[0]);

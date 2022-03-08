@@ -190,62 +190,8 @@ namespace Team4_Project2
             if(phaseCounterThree>0)
             phaseCounterThree--;
             if(phaseCounterFour>0)
-            phaseCounterFour--;
-
-            string placeholder = "";
-            int i = 0;
-      
-
-            //Switch selects which phase we are in currently
-            switch (phaseCounter)
-            {
-                //Fetch phase
-                case 1:
-                    resetPhaseLabelColors();
-                    fetchLabel.ForeColor = Color.Red;
-
-                    break;
-
-                //Decode phase
-                case 2:
-                    resetPhaseLabelColors();
-                    decodeLabel.ForeColor = Color.Red;
-
-                    break;
-
-                //Execute phase
-                case 3:
-                    resetPhaseLabelColors();
-                    executeLabel.ForeColor = Color.Red;
-                    ProgramController.execute(placeholder);
-                    break;
-
-                //Store/Finish phase
-                case 4:
-                    resetPhaseLabelColors();
-                    storeLabel.ForeColor = Color.Red;
-                    ProgramController.store(placeholder);
-                    break;
-
-                default:
-                    //Do nothing (might insert code here in future)
-                    break;
-            }
+            phaseCounterFour--;            
         }
-        #endregion
-
-        #region resetPhaseLabelColors() Method
-        /// <summary>
-        /// Method for resetting all phase label colors on the form
-        /// </summary>
-        private void resetPhaseLabelColors()
-        {
-            fetchLabel.ForeColor = Color.White;
-            decodeLabel.ForeColor = Color.White;
-            executeLabel.ForeColor = Color.White;
-            storeLabel.ForeColor = Color.White;
-
-        }//end resetLabelColors()
         #endregion
 
         private void label7_Click(object sender, EventArgs e)

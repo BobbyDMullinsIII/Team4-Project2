@@ -639,7 +639,6 @@ namespace Team4_Project2
             //=============================//
             //INSERT CODE FOR FETCHING HERE//
             //=============================//
-            int i = 0;
             switch (instructions[i])
             {
                 case string n when (n == "LDRE"):

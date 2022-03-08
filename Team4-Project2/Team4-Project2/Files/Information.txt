@@ -44,10 +44,10 @@ R9	GP
 R10	GP
 R11	GP
 
-F0	GP
-F1	GP
-F2	GP
-F3	GP
+F12	GP
+F13	GP
+F14	GP
+F15	GP
 
 =Pipeline Phases=
 Fetch		1

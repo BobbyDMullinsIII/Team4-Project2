@@ -33,6 +33,13 @@ namespace Team4_Project2
                                 //2 = decode phase
                                 //3 = execute phase
                                 //4 = store/finish phase
+        List<int[]> tempNums = new List<int[]>()
+        {
+            new int[4] { 0, 0, 0, 0},
+            new int[4] { 0, 0, 0, 0},
+            new int[4] { 0, 0, 0, 0},
+            new int[4] { 0, 0, 0, 0}
+        };
 
         public GUIForm()
         {

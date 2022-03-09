@@ -63,6 +63,11 @@ namespace Team4_Project2
         bool rF1 = true;
         bool rF2 = true;
         int rawCount = 0;
+        int structCount = 0;
+        bool sFlagCount = true;
+        bool eFlagCount = true;
+        bool fFlagCount = true;
+        bool dFlagCount = true;
         bool rFree, wFree = true;
 
 
@@ -230,7 +235,7 @@ namespace Team4_Project2
                 if (ifStop == true && pipeStore.Count == 0)
                 {
                     nextCycleButton.Enabled = false;
-                    pipelineOutputTextBox.Text = ProgramController.outputPipelineStats(0, dataHCount, 0, rawCount, 0, 0, fStall, dStall, eStall, sStall, cycleCounter);
+                    pipelineOutputTextBox.Text = ProgramController.outputPipelineStats(structCount, dataHCount, 0, rawCount, 0, 0, fStall, dStall, eStall, sStall, cycleCounter);
                 }
             }
 
@@ -257,9 +262,20 @@ namespace Team4_Project2
 
                     eGo = false;
                     sGo = false;
+
+                    eFlagCount = true;
                 }
                 if (sGo == true && sWall == false && pipeExecute.Count > 0)
+                {
                     eStall++;
+                    if (eFlagCount == true)
+                    {
+                        structCount++;
+                        eFlagCount = false;
+                    }
+
+                }
+
             }
 
             if (pipeDecode.Count > 0)
@@ -282,10 +298,18 @@ namespace Team4_Project2
                     dWall = true;
                     dGo = false;
                     eGo = false;
+
+                    dFlagCount = true;
                 }
                 if (eGo == true && eWall == false && pipeDecode.Count > 0)
                 {
                     dStall++;
+                    if (dFlagCount == true)
+                    {
+                        structCount++;
+                        dFlagCount = false;
+                    }
+
                 }
 
             }
@@ -310,9 +334,20 @@ namespace Team4_Project2
                     fWall = true;
                     fGo = false;
                     dGo = false;
+
+                    fFlagCount = true;
                 }
                 if (dGo == true && dWall == false && pipeFetch.Count > 0)
+                {
                     fStall++;
+                    if (fFlagCount == true)
+                    {
+                        structCount++;
+                        fFlagCount = false;
+                    }
+
+                }
+
                 if (pipeExecute.Count > 0 && rawFlag == true)
                 {
                     if (pipeExecute[0].SRegister == pipeDecode[0].P1Register || pipeExecute[0].SRegister == pipeDecode[0].P2Register)
@@ -320,6 +355,7 @@ namespace Team4_Project2
                         rawFlag = false;
                         rawCount++;
                         dataHCount++;
+                        rF1 = false;
                     }
                 }
                 if (pipeStore.Count > 0 && rawFlag == true)
@@ -329,13 +365,20 @@ namespace Team4_Project2
                         rawFlag = false;
                         rawCount++;
                         dataHCount++;
+                        rF2 = false;
                     }
                 }
                 if (rawFlag == false)
                 {
-                    if (pipeExecute.Count == 0 && pipeStore.Count == 0)
+                    if (pipeExecute.Count == 0 && pipeStore.Count == 0 && rF1 == false)
                     {
                         rawFlag = true;
+                        rF1 = true;
+                    }
+                    if (pipeExecute.Count == 0 && rF2 == false)
+                    {
+                        rawFlag = true;
+                        rF2 = true;
                     }
                 }
             }

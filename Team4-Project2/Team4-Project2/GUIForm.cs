@@ -47,8 +47,10 @@ namespace Team4_Project2
         List<string> instructions = new List<string>();
         int programIndex = 0;
         bool start = true;
+
         int fetchStall, decodeStall, executeStall = 0;
         int readyFetch, readyDecode, readyExecute = 0;
+
         bool fWall, dWall, eWall, sWall = true;
         bool fGo, dGo, eGo, sGo = false;
 
@@ -404,7 +406,6 @@ namespace Team4_Project2
                         rF2 = false;
                     }
                 }
-
                 if (rawFlag == false)
                 {
                     if (pipeExecute.Count == 0 && pipeStore.Count == 0 && rF1 == false)
@@ -421,11 +422,13 @@ namespace Team4_Project2
 
                 if (warFlag == false)
                 {
+
                     if (pipeExecute.Count == 0 && pipeStore.Count == 0 || rF1 == false)
                     {
                         warFlag = true;
                         rF1 = true;
                     }
+
                     if (pipeExecute.Count == 0 || rF2 == false)
                     {
                         warFlag = true;

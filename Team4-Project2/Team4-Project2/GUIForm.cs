@@ -56,6 +56,9 @@ namespace Team4_Project2
         string instLit = string.Empty;
         int stopF = 0;
         int readyFlag = 0;
+        bool ifStop = false;
+        string param1, param2, store= string.Empty;
+        bool rFree, wFree=true;
 
 
 
@@ -196,7 +199,7 @@ namespace Team4_Project2
         private void nextCycleButton_Click(object sender, EventArgs e)
         {
             //Increase cycle counter by one
-            incrementCycleCounter();
+
 
             if(start == true)
             {
@@ -217,9 +220,15 @@ namespace Team4_Project2
                     pipeStore.RemoveAt(0);
                     sGo = false;
                     sWall = true;
-                }
 
+                }
+                if (ifStop == true && pipeStore.Count == 0)
+                {
+                    nextCycleButton.Enabled = false;
+                    pipelineOutputTextBox.Text = ProgramController.outputPipelineStats(0,0,0,0,0,0,fStall,dStall,eStall,sStall,cycleCounter);
+                }
             }
+            
             if (pipeExecute.Count > 0)
             {
 
@@ -227,63 +236,78 @@ namespace Team4_Project2
                 {
                     pipeExecute[0].Execute--;
                 }
-                if (pipeExecute[0].Execute <= 0)
+                ifStop = ProgramController.execute(pipeExecute[0].InstLit);
+                if (pipeExecute[0].Execute <= 0 && ifStop == false)
                 {
                     sGo = true;
+
                 }
                 if (sGo == true && sWall == true)
                 {
+
                     pipeStore.Add(pipeExecute[0]);
                     sWall = false;
                     pipeExecute.RemoveAt(0);
                     eWall = true;
+
                     eGo = false;
                     sGo = false;
                 }
-            }
-            if (pipeDecode.Count > 0)
-            {
-
-                if (eGo != true)
-                {
-                    pipeDecode[0].Decode--;
-                }
-                if (pipeDecode[0].Decode <= 0)
-                {
-                    eGo = true;
-                }
-                if (eGo == true && eWall == true)
-                {
-                    pipeExecute.Add(pipeDecode[0]);
-                    eWall = false;
-                    pipeDecode.RemoveAt(0);
-                    dWall = true;
-                    dGo = false;
-                    eGo = false;
-                }
-            }
-            if (pipeFetch.Count > 0)
-            {
-
-                if (dGo != true)
-                {
-                    pipeFetch[0].Fetch--;
-                }
-                if (pipeFetch[0].Fetch <= 0)
-                {
-                    dGo = true;
-                }
-                if (dGo == true && dWall == true)
-                {
-                    pipeDecode.Add(pipeFetch[0]);
-                    dWall = false;
-                    pipeFetch.RemoveAt(0);
-                    fWall = true;
-                    fGo = false;
-                    dGo = false;
-                }
+                if (sGo == true && sWall == false && pipeExecute.Count>0)
+                    eStall++;
             }
 
+                if (pipeDecode.Count > 0)
+                {
+
+                    if (eGo != true)
+                    {
+                        pipeDecode[0].Decode--;
+                    }
+                    if (pipeDecode[0].Decode <= 0)
+                    {
+                        eGo = true;
+                    }
+                    if (eGo == true && eWall == true)
+                    {
+                        pipeExecute.Add(pipeDecode[0]);
+                        eWall = false;
+                        pipeDecode.RemoveAt(0);
+                        dWall = true;
+                        dGo = false;
+                        eGo = false;
+                    }
+                    if (eGo == true && eWall == false && pipeDecode.Count > 0)
+                    {
+                        dStall++;
+                    }
+                }
+
+                if (pipeFetch.Count > 0)
+                {
+
+                    if (dGo != true)
+                    {
+                        pipeFetch[0].Fetch--;
+                    }
+                    if (pipeFetch[0].Fetch <= 0)
+                    {
+                        dGo = true;
+                    }
+                    if (dGo == true && dWall == true)
+                    {
+                       (store, param1, param2) = ProgramController.decode(pipeFetch[0]);
+                        pipeDecode.Add(pipeFetch[0]);
+                        dWall = false;
+                        pipeFetch.RemoveAt(0);
+                        fWall = true;
+                        fGo = false;
+                        dGo = false;
+                    }
+                    if (dGo == true && dWall == false && pipeFetch.Count > 0)
+                        fStall++;
+                }
+            
 
             if (start == true)
             {
@@ -291,7 +315,7 @@ namespace Team4_Project2
                 start = false;
 
             }
-            if (pipeFetch.Count == 0)
+            if (pipeFetch.Count == 0 && stopF == 0)
             {
                 (pipeFetch, progCount, programIndex, stopF) = ProgramController.fetch(instructions, pipeFetch, progCount, programIndex);
             }
@@ -331,7 +355,8 @@ namespace Team4_Project2
             {
                 storeTextBox.Text = "";
             }
-            pipelineOutputTextBox.Text = $"fStall:{fStall}|dStall:{dStall}|eStall:{eStall}|sStall:{sStall}";
+            if (nextCycleButton.Enabled== true)
+            incrementCycleCounter();
         }
         #endregion
 

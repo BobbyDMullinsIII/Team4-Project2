@@ -27,8 +27,9 @@ namespace Team4_Project2
     /// </summary>
     public class Instruction
     {
-        string instLit = string.Empty;
-        int fetch, decode, execute, store, register, name = 0;
+        string instLit,p1Register, p2Register = string.Empty;
+        string sRegister = string.Empty;
+        int fetch, decode, execute, store,  name = 0;
 
         /// <summary>
         /// Parameterized Constructor for Instruction
@@ -39,14 +40,28 @@ namespace Team4_Project2
         /// <param name="execute">Number of execute cycles</param>
         /// <param name="store">Number of register cycles</param>
         /// <param name="register">Register currently being worked on</param>
-        public Instruction(int name, int fetch, int decode, int execute, int store,int register, string instLit )
+        public Instruction(int name, int fetch, int decode, int execute, int store,string sRegister,string p1Register, string instLit )
         {
             this.name = name;
             this.fetch = fetch;
             this.decode = decode;
             this.execute = execute;
             this.store = store;
-            this.register = register;
+            this.sRegister = sRegister;
+            this.p1Register = p1Register;
+            this.instLit = instLit;
+
+        }//end Instruction()
+        public Instruction(int name, int fetch, int decode, int execute, int store, string sRegister, string p1Register,string p2Register, string instLit)
+        {
+            this.name = name;
+            this.fetch = fetch;
+            this.decode = decode;
+            this.execute = execute;
+            this.store = store;
+            this.sRegister = sRegister;
+            this.p1Register = p1Register;
+            this.p2Register = p2Register;
             this.instLit = instLit;
 
         }//end Instruction()
@@ -81,10 +96,20 @@ namespace Team4_Project2
             set { store = value; }
         }
 
-        public int Register
+        public string SRegister
         {
-            get { return register; }
-            set { register = value; }
+            get { return sRegister; }
+            set { sRegister = value; }
+        }
+        public string P1Register
+        {
+            get { return p1Register; }
+            set { p1Register = value; }
+        }
+        public string P2Register
+        {
+            get { return p2Register; }
+            set { p2Register = value; }
         }
         public string InstLit
         {

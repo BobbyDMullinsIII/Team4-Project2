@@ -650,7 +650,7 @@ namespace Team4_Project2
                         instLit += " ";
                         instLit += instructions[i+2];
 
-                        Instruction LDRERR = new Instruction(progCount += 4, 1, 1, 1, 2, Convert.ToInt32(instructions[i + 1][1]), instLit);
+                        Instruction LDRERR = new Instruction(progCount += 4, 1, 1, 1, 2, instructions[i + 1], instructions[i + 2], instLit);
                         pipeInts.Add(LDRERR);
                         i += 4;
 
@@ -663,7 +663,7 @@ namespace Team4_Project2
                         instLit += " ";
                         instLit += instructions[i + 2];
 
-                        Instruction LDRERI = new Instruction(progCount += 4, 1, 1, 1, 2, Convert.ToInt32(instructions[i + 1][1]), instLit);
+                        Instruction LDRERI = new Instruction(progCount += 4, 1, 1, 1, 2, instructions[i + 1], string.Empty, instLit);
                         pipeInts.Add(LDRERI);
                         i += 4;
                     }
@@ -676,7 +676,7 @@ namespace Team4_Project2
                         instLit += instructions[i + 2];
 
 
-                        Instruction LDRERM = new Instruction(progCount += 4, 1, 1, 3, 2, Convert.ToInt32(instructions[i + 1][1]), instLit);
+                        Instruction LDRERM = new Instruction(progCount += 4, 1, 1, 3, 2, instructions[i + 1], instructions[i+2], instLit);
                         pipeInts.Add(LDRERM);
                         i += 4;
                     }
@@ -690,7 +690,7 @@ namespace Team4_Project2
                     instLit += instructions[i + 2];
                     
 
-                    Instruction STRE = new Instruction(progCount += 4, 1, 1, 3, 2, Convert.ToInt32(instructions[i + 1][1]), instLit);
+                    Instruction STRE = new Instruction(progCount += 4, 1, 1, 3, 2, instructions[i + 1], instructions[i + 2], instLit);
                     pipeInts.Add(STRE);
                     i += 4;
                     break;
@@ -704,7 +704,7 @@ namespace Team4_Project2
                     instLit += " ";
                     instLit += instructions[i + 3];
 
-                    Instruction COMP = new Instruction(progCount += 4, 1, 1, 1, 2, Convert.ToInt32(instructions[i + 1][1]), instLit);
+                    Instruction COMP = new Instruction(progCount += 4, 1, 1, 1, 2, instructions[i + 1], instructions[i + 2], instructions[i + 3], instLit);
                     pipeInts.Add(COMP);
                     i += 5;
                     break;
@@ -718,7 +718,7 @@ namespace Team4_Project2
                     instLit += " ";
                     instLit += instructions[i + 3];
 
-                    Instruction ANDD = new Instruction(progCount += 4, 1, 1, 1, 2, Convert.ToInt32(instructions[i + 1][1]), instLit);
+                    Instruction ANDD = new Instruction(progCount += 4, 1, 1, 1, 2, instructions[i + 1], instructions[i + 2], instructions[i + 3], instLit);
                     pipeInts.Add(ANDD);
                     i += 5;
                     break;
@@ -732,7 +732,7 @@ namespace Team4_Project2
                     instLit += " ";
                     instLit += instructions[i + 3];
 
-                    Instruction OORR = new Instruction(progCount += 4, 1, 1, 1, 2, Convert.ToInt32(instructions[i + 1][1]), instLit);
+                    Instruction OORR = new Instruction(progCount += 4, 1, 1, 1, 2, instructions[i + 1], instructions[i + 2], instructions[i + 3], instLit);
                     pipeInts.Add(OORR);
                     i += 5;
                     break;
@@ -744,7 +744,7 @@ namespace Team4_Project2
                     instLit += " ";
                     instLit += instructions[i + 2];
 
-                    Instruction BRLT = new Instruction(progCount += 4, 1, 1, 1, 1, Convert.ToInt32(instructions[i + 1][1]), instLit);
+                    Instruction BRLT = new Instruction(progCount += 4, 1, 1, 1, 1, instructions[i + 1], instructions[i + 2], instLit);
                     pipeInts.Add(BRLT);
                     i += 4;
                     break;
@@ -756,7 +756,7 @@ namespace Team4_Project2
                     instLit += " ";
                     instLit += instructions[i + 2];
 
-                    Instruction BRGT = new Instruction(progCount += 4, 1, 1, 1, 1, Convert.ToInt32(instructions[i + 1][1]), instLit);
+                    Instruction BRGT = new Instruction(progCount += 4, 1, 1, 1, 1, instructions[i + 1], instructions[i + 2], instLit);
                     pipeInts.Add(BRGT);
                     i += 4;
                     break;
@@ -768,7 +768,7 @@ namespace Team4_Project2
                     instLit += " ";
                     instLit += instructions[i + 2];
 
-                    Instruction BREQ = new Instruction(progCount += 4, 1, 1, 1, 1, Convert.ToInt32(instructions[i + 1][1]), instLit);
+                    Instruction BREQ = new Instruction(progCount += 4, 1, 1, 1, 1, instructions[i + 1], instructions[i + 2], instLit);
                     pipeInts.Add(BREQ);
                     i += 4;
                     break;
@@ -781,7 +781,7 @@ namespace Team4_Project2
                     instLit += instructions[i + 2];
                     
 
-                    Instruction BRAN = new Instruction(progCount += 4, 1, 1, 1, 1, Convert.ToInt32(instructions[i + 1][1]), instLit);
+                    Instruction BRAN = new Instruction(progCount += 4, 1, 1, 1, 1, instructions[i + 1], instructions[i + 2], instLit);
                     pipeInts.Add(BRAN);
                     i += 4;
                     break;
@@ -794,7 +794,7 @@ namespace Team4_Project2
                     instLit += instructions[i + 2];
 
 
-                    Instruction ADDI = new Instruction(progCount += 4, 1, 1, 1, 2, Convert.ToInt32(instructions[i + 1][1]), instLit);
+                    Instruction ADDI = new Instruction(progCount += 4, 1, 1, 1, 2, instructions[i + 1], instructions[i + 2], instructions[i + 3], instLit);
                     pipeInts.Add(ADDI);
                     i += 5;
                     break;
@@ -807,7 +807,7 @@ namespace Team4_Project2
                     instLit += instructions[i + 2];
 
 
-                    Instruction SUBT = new Instruction(progCount += 4, 1, 1, 1, 2, Convert.ToInt32(instructions[i + 1][1]), instLit);
+                    Instruction SUBT = new Instruction(progCount += 4, 1, 1, 1, 2, instructions[i + 1], instructions[i + 2], instructions[i + 3], instLit);
                     pipeInts.Add(SUBT);
                     i += 5;
                     break;
@@ -821,7 +821,7 @@ namespace Team4_Project2
                     instLit += " ";
                     instLit += instructions[i + 3];
                     
-                    Instruction FADD = new Instruction(progCount += 4, 1, 1, 2, 2, Convert.ToInt32(instructions[i + 1][1]),instLit);
+                    Instruction FADD = new Instruction(progCount += 4, 1, 1, 2, 2, instructions[i + 1], instructions[i + 2], instructions[i + 3], instLit);
                     pipeInts.Add(FADD);
                     i += 5;
                     break;
@@ -835,7 +835,7 @@ namespace Team4_Project2
                     instLit += " ";
                     instLit += instructions[i + 3];
                     
-                    Instruction FSUB = new Instruction(progCount += 4, 1, 1, 2, 2, Convert.ToInt32(instructions[i + 1][1]), instLit);
+                    Instruction FSUB = new Instruction(progCount += 4, 1, 1, 2, 2, instructions[i + 1], instructions[i + 2], instructions[i + 3], instLit);
                     pipeInts.Add(FSUB);
                     i += 5;
                     break;
@@ -850,7 +850,7 @@ namespace Team4_Project2
                     instLit += " ";
                     instLit += instructions[i + 3];
                     
-                    Instruction FMUL = new Instruction(progCount += 4, 1, 1, 5, 2, Convert.ToInt32(instructions[i + 1][1]), instLit);
+                    Instruction FMUL = new Instruction(progCount += 4, 1, 1, 5, 2, instructions[i + 1], instructions[i + 2], instructions[i + 3], instLit);
                     pipeInts.Add(FMUL);
                     i += 5;
                     break;
@@ -864,7 +864,7 @@ namespace Team4_Project2
                     instLit += " ";
                     instLit += instructions[i + 3];
                    
-                    Instruction FDIV = new Instruction(progCount += 4, 1, 1, 10, 2, Convert.ToInt32(instructions[i + 1][1]), instLit);
+                    Instruction FDIV = new Instruction(progCount += 4, 1, 1, 10, 2, instructions[i + 1], instructions[i + 2], instructions[i + 3], instLit);
                     pipeInts.Add(FDIV);
                     i += 5;
                     break;
@@ -876,14 +876,14 @@ namespace Team4_Project2
                     instLit += " ";
                     instLit += instructions[i + 2];
                     
-                    Instruction NOOP = new Instruction(progCount += 4, 1, 1, 1, 1, Convert.ToInt32(instructions[i + 1][1]), instLit);
+                    Instruction NOOP = new Instruction(progCount += 4, 1, 1, 1, 1, instructions[i + 1], instructions[i + 2], instLit);
                     pipeInts.Add(NOOP);
                     i += 4;
                     break;
 
                 case string n when (n == "STOP"):
                     instLit += instructions[i];
-                    Instruction STOP = new Instruction(progCount += 4, 1, 1, 1, 1, -1,instLit);
+                    Instruction STOP = new Instruction(progCount += 4, 1, 1, 1, 1, String.Empty, String.Empty, instLit);
                     pipeInts.Add(STOP);
                     stopF = 1;
                     break;
@@ -899,21 +899,19 @@ namespace Team4_Project2
         /// </summary>
         /// <param name="decodeInput">Input instruction to decode</param>
         /// <returns></returns>
-        public static string decode(List<Instruction> pipeInts )
+        public static (string,string,string) decode(Instruction pipeInts )
         {
-            string decodeOutput = "";
-            int structuralHazard = 0;
-
-            if(pipeInts.Count > 2)
+            string param2 = string.Empty;
+            if(pipeInts.P2Register!= string.Empty)
             {
-                structuralHazard += 2;
+                param2 = pipeInts.P2Register;
             }
 
             //=============================//
             //INSERT CODE FOR DECODING HERE//
             //=============================//
 
-            return decodeOutput;
+            return (store: pipeInts.SRegister,param1 : pipeInts.P1Register, param2 : pipeInts.P2Register);
 
         }//end decode()
         #endregion
@@ -924,15 +922,16 @@ namespace Team4_Project2
         /// </summary>
         /// <param name="executeInput">Input instruction to execute</param>
         /// <returns></returns>
-        public static string execute(string executeInput)
+        public static bool execute(string executeInput)
         {
-            string executeOutput = "";
+            bool ifStop = false;
 
-            //==============================//
-            //INSERT CODE FOR EXECUTING HERE//
-            //==============================//
+            if (executeInput == "STOP")
+            {
+                ifStop = true;
+            }
 
-            return executeOutput;
+            return ifStop;
 
         }//end execute()
         #endregion

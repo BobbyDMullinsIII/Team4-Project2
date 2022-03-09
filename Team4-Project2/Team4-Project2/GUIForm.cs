@@ -28,11 +28,11 @@ namespace Team4_Project2
 {
     public partial class GUIForm : Form
     {
-        int phaseCounter = 0;   //0 = not started,
-                                //1 = fetch phase
-                                //2 = decode phase
-                                //3 = execute phase
-                                //4 = store/finish phase
+        int phaseCounterOne = 0;    //0 = not started,
+                                    //1 = fetch phase
+                                    //2 = decode phase
+                                    //3 = execute phase
+                                    //4 = store/finish phase
                                 
         int phaseCounterTwo;
         int phaseCounterThree;
@@ -40,8 +40,12 @@ namespace Team4_Project2
         int progCount = 0;
         List<string> instructions = new List<string>();
         int programIndex = 0;
-        List<Instruction> pipeInts = new List<Instruction>();
+        List<Instruction> pipeFetch = new List<Instruction>();
+        List<Instruction> pipeDecode = new List<Instruction>();
+        List<Instruction> pipeExecute = new List<Instruction>();
+        List<Instruction> pipeStore = new List<Instruction>();
         string instLit = string.Empty;
+        int stopF = 0;
 
 
 
@@ -163,7 +167,7 @@ namespace Team4_Project2
 
                 assemblyTextBox.ReadOnly = true;
                 //Sets counter to 1, equal to fetch phase
-                phaseCounter++;
+                phaseCounterOne++;
 
                 //Sets fetch phase label to red to signify we are in that phase
                 fetchLabel.ForeColor = Color.Red;
@@ -185,17 +189,80 @@ namespace Team4_Project2
             //Currently, each phase is only 1 clock cycle, but will need//
             //to be changed depending on what instruction and registers //
             //==========================================================//
-            if(phaseCounter>0)                             //decrement counter 
-            phaseCounter--;
+            if(phaseCounterOne>0)                             //decrement counter 
+            phaseCounterOne--;
             if(phaseCounterTwo>0)
             phaseCounterTwo--;
             if(phaseCounterThree>0)
             phaseCounterThree--;
             if(phaseCounterFour>0)
             phaseCounterFour--;
+            if (pipeFetch.Count >= 1)
+            {
 
-            (pipeInts, progCount, programIndex,instLit) = ProgramController.fetch(instructions, pipeInts, progCount, programIndex);
-            instructOneText.Text = instLit;
+
+                if (pipeFetch[0].Fetch == 0)
+                {
+                    pipeDecode.Add(pipeFetch[0]);
+                    pipeFetch.RemoveAt(0);
+                }
+                if(pipeFetch.Count>=1)
+                pipeFetch[0].Fetch--;                //decrement fetch counter for instruction at top of que
+            }
+            if (pipeDecode.Count >= 1)
+            {
+               
+
+                if (pipeDecode[0].Decode == 0)
+                {
+                    pipeExecute.Add(pipeDecode[0]);
+                    pipeDecode.RemoveAt(0);
+                }
+                if (pipeDecode.Count >= 1)
+                    pipeDecode[0].Decode--;
+            }
+            if (pipeExecute.Count >= 1)
+            {
+                
+
+                if (pipeExecute[0].Execute == 0)
+                {
+                    pipeStore.Add(pipeExecute[0]);
+                    pipeExecute.RemoveAt(0);
+                }
+                if (pipeExecute.Count >= 1)
+                    pipeExecute[0].Execute--;
+            }
+            if (pipeStore.Count >= 1)
+            {
+                
+
+                if (pipeStore[0].Store == 0)
+                {
+                    pipeStore.RemoveAt(0);
+                }
+                if (pipeStore.Count >= 1)
+                    pipeStore[0].Store--;
+            }
+            if(stopF == 0)
+            (pipeFetch, progCount, programIndex, stopF ) = ProgramController.fetch(instructions, pipeFetch, progCount, programIndex);
+            if (pipeFetch.Count >= 1)
+            {
+                instructOneText.Text = pipeFetch[0].InstLit;
+            }
+            if (pipeDecode.Count >= 1)
+            {
+                decodeTextBox.Text = pipeDecode[0].InstLit;
+            }
+            if (pipeExecute.Count >= 1)
+            {
+                executeTextBox.Text = pipeExecute[0].InstLit;
+            }
+            if (pipeStore.Count>=1)
+            {
+                storeTextBox.Text = pipeStore[0].InstLit;
+            }
+            
         }
         #endregion
 

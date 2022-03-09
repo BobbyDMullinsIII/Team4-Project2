@@ -40,9 +40,9 @@
             this.assemblyTextBox = new System.Windows.Forms.TextBox();
             this.assemblyLabel = new System.Windows.Forms.Label();
             this.simulationPanel = new System.Windows.Forms.Panel();
-            this.instructTextBox3 = new System.Windows.Forms.TextBox();
-            this.instructTextBox4 = new System.Windows.Forms.TextBox();
-            this.instructTextBox2 = new System.Windows.Forms.TextBox();
+            this.executeTextBox = new System.Windows.Forms.TextBox();
+            this.storeTextBox = new System.Windows.Forms.TextBox();
+            this.decodeTextBox = new System.Windows.Forms.TextBox();
             this.instructOneText = new System.Windows.Forms.TextBox();
             this.nextCycleButton = new System.Windows.Forms.Button();
             this.startButton = new System.Windows.Forms.Button();
@@ -197,9 +197,9 @@
             // simulationPanel
             // 
             this.simulationPanel.BackColor = System.Drawing.Color.Black;
-            this.simulationPanel.Controls.Add(this.instructTextBox3);
-            this.simulationPanel.Controls.Add(this.instructTextBox4);
-            this.simulationPanel.Controls.Add(this.instructTextBox2);
+            this.simulationPanel.Controls.Add(this.executeTextBox);
+            this.simulationPanel.Controls.Add(this.storeTextBox);
+            this.simulationPanel.Controls.Add(this.decodeTextBox);
             this.simulationPanel.Controls.Add(this.instructOneText);
             this.simulationPanel.Controls.Add(this.nextCycleButton);
             this.simulationPanel.Controls.Add(this.startButton);
@@ -213,29 +213,29 @@
             this.simulationPanel.Size = new System.Drawing.Size(946, 604);
             this.simulationPanel.TabIndex = 3;
             // 
-            // instructTextBox3
+            // executeTextBox
             // 
-            this.instructTextBox3.Location = new System.Drawing.Point(12, 193);
-            this.instructTextBox3.Name = "instructTextBox3";
-            this.instructTextBox3.ReadOnly = true;
-            this.instructTextBox3.Size = new System.Drawing.Size(100, 20);
-            this.instructTextBox3.TabIndex = 34;
+            this.executeTextBox.Location = new System.Drawing.Point(12, 193);
+            this.executeTextBox.Name = "executeTextBox";
+            this.executeTextBox.ReadOnly = true;
+            this.executeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.executeTextBox.TabIndex = 34;
             // 
-            // instructTextBox4
+            // storeTextBox
             // 
-            this.instructTextBox4.Location = new System.Drawing.Point(12, 261);
-            this.instructTextBox4.Name = "instructTextBox4";
-            this.instructTextBox4.ReadOnly = true;
-            this.instructTextBox4.Size = new System.Drawing.Size(100, 20);
-            this.instructTextBox4.TabIndex = 33;
+            this.storeTextBox.Location = new System.Drawing.Point(12, 261);
+            this.storeTextBox.Name = "storeTextBox";
+            this.storeTextBox.ReadOnly = true;
+            this.storeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.storeTextBox.TabIndex = 33;
             // 
-            // instructTextBox2
+            // decodeTextBox
             // 
-            this.instructTextBox2.Location = new System.Drawing.Point(12, 120);
-            this.instructTextBox2.Name = "instructTextBox2";
-            this.instructTextBox2.ReadOnly = true;
-            this.instructTextBox2.Size = new System.Drawing.Size(100, 20);
-            this.instructTextBox2.TabIndex = 32;
+            this.decodeTextBox.Location = new System.Drawing.Point(12, 120);
+            this.decodeTextBox.Name = "decodeTextBox";
+            this.decodeTextBox.ReadOnly = true;
+            this.decodeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.decodeTextBox.TabIndex = 32;
             // 
             // instructOneText
             // 
@@ -481,9 +481,9 @@
         private System.Windows.Forms.TextBox pipelineOutputTextBox;
         private System.Windows.Forms.Label pipelineOutputLabel;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox instructTextBox3;
-        private System.Windows.Forms.TextBox instructTextBox4;
-        private System.Windows.Forms.TextBox instructTextBox2;
+        private System.Windows.Forms.TextBox executeTextBox;
+        private System.Windows.Forms.TextBox storeTextBox;
+        private System.Windows.Forms.TextBox decodeTextBox;
         private System.Windows.Forms.TextBox instructOneText;
     }
 }

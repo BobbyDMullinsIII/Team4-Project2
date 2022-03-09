@@ -27,8 +27,8 @@ namespace Team4_Project2
     /// </summary>
     public class Instruction
     {
-        int name = 0;
-        int fetch, decode, execute, store, register = 0;
+        string instLit = string.Empty;
+        int fetch, decode, execute, store, register, name = 0;
 
         /// <summary>
         /// Parameterized Constructor for Instruction
@@ -39,7 +39,7 @@ namespace Team4_Project2
         /// <param name="execute">Number of execute cycles</param>
         /// <param name="store">Number of register cycles</param>
         /// <param name="register">Register currently being worked on</param>
-        public Instruction(int name, int fetch, int decode, int execute, int store,int register )
+        public Instruction(int name, int fetch, int decode, int execute, int store,int register, string instLit )
         {
             this.name = name;
             this.fetch = fetch;
@@ -47,9 +47,50 @@ namespace Team4_Project2
             this.execute = execute;
             this.store = store;
             this.register = register;
+            this.instLit = instLit;
 
         }//end Instruction()
 
+        public int Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public int Fetch
+        {
+            get { return fetch; }
+            set { fetch = value; }
+        }
+
+        public int Decode
+        {
+            get { return decode; } 
+            set { decode = value; }
+        }
+
+        public int Execute
+        {
+            get { return execute; }
+            set { execute = value; }
+        }
+
+        public int Store
+        {
+            get { return store; }
+            set { store = value; }
+        }
+
+        public int Register
+        {
+            get { return register; }
+            set { register = value; }
+        }
+        public string InstLit
+        {
+            get { return instLit; }
+            set { instLit = value; }
+        }
     }//end Instruction class
 
 }//end Team4_Project2 namespace

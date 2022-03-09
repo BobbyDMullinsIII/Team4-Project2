@@ -45,7 +45,9 @@ namespace Team4_Project2
 
             //Opens application to guiForm
             guiForm = new GUIForm();
+            guiForm.counterTextBox.SelectionAlignment = HorizontalAlignment.Center;
             Application.Run(guiForm);
+
 
         }//end startProgram()
         #endregion

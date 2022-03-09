@@ -28,18 +28,23 @@ namespace Team4_Project2
 {
     public partial class GUIForm : Form
     {
-        int phaseCounterOne = 0;    //0 = not started,
-                                    //1 = fetch phase
-                                    //2 = decode phase
-                                    //3 = execute phase
-                                    //4 = store/finish phase
-                                
+        //Counter for cycles
+        int cycleCounter = 0;
+
+        //0 = not started,
+        //1 = fetch phase
+        //2 = decode phase
+        //3 = execute phase
+        //4 = store/finish phase
+        int phaseCounterOne = 0;                              
         int phaseCounterTwo;
         int phaseCounterThree;
         int phaseCounterFour;
+
         int progCount = 0;
         List<string> instructions = new List<string>();
         int programIndex = 0;
+
         List<Instruction> pipeFetch = new List<Instruction>();
         List<Instruction> pipeDecode = new List<Instruction>();
         List<Instruction> pipeExecute = new List<Instruction>();
@@ -185,11 +190,14 @@ namespace Team4_Project2
         /// <param name="e">arguments for event (auto-generated, unused here)</param>
         private void nextCycleButton_Click(object sender, EventArgs e)
         {
+            //Increase cycle counter by one
+            incrementCycleCounter();
+
             //==========================================================//
             //Currently, each phase is only 1 clock cycle, but will need//
             //to be changed depending on what instruction and registers //
             //==========================================================//
-            if(phaseCounterOne>0)                             //decrement counter 
+            if (phaseCounterOne>0)                             //decrement counter 
             phaseCounterOne--;
             if(phaseCounterTwo>0)
             phaseCounterTwo--;
@@ -266,16 +274,6 @@ namespace Team4_Project2
         }
         #endregion
 
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void pipelineOutputTextBox_TextChanged(object sender, EventArgs e)
         {
 
@@ -285,5 +283,18 @@ namespace Team4_Project2
         {
 
         }
+
+        #region incrementCycleCounter() Method
+        /// <summary>
+        /// Method for incrementing cycle counter and updating gui to reflect it
+        /// </summary>
+        public void incrementCycleCounter()
+        {
+            cycleCounter++;
+            counterTextBox.Text = cycleCounter.ToString();
+            counterTextBox.SelectionAlignment = HorizontalAlignment.Center;
+
+        }//end incrementCycleCounter()
+        #endregion
     }
 }

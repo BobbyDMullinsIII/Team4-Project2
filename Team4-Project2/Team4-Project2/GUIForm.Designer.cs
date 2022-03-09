@@ -57,6 +57,8 @@
             this.pipelineOutputTextBox = new System.Windows.Forms.TextBox();
             this.pipelineOutputLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.counterTextBox = new System.Windows.Forms.RichTextBox();
+            this.cyclesLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.assemblyPanel.SuspendLayout();
             this.simulationPanel.SuspendLayout();
@@ -69,7 +71,7 @@
             this.MNAWLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.MNAWLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MNAWLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MNAWLabel.Location = new System.Drawing.Point(463, 35);
+            this.MNAWLabel.Location = new System.Drawing.Point(623, 35);
             this.MNAWLabel.Name = "MNAWLabel";
             this.MNAWLabel.Size = new System.Drawing.Size(339, 33);
             this.MNAWLabel.TabIndex = 0;
@@ -197,6 +199,8 @@
             // simulationPanel
             // 
             this.simulationPanel.BackColor = System.Drawing.Color.Black;
+            this.simulationPanel.Controls.Add(this.cyclesLabel);
+            this.simulationPanel.Controls.Add(this.counterTextBox);
             this.simulationPanel.Controls.Add(this.executeTextBox);
             this.simulationPanel.Controls.Add(this.storeTextBox);
             this.simulationPanel.Controls.Add(this.decodeTextBox);
@@ -218,7 +222,7 @@
             this.executeTextBox.Location = new System.Drawing.Point(12, 193);
             this.executeTextBox.Name = "executeTextBox";
             this.executeTextBox.ReadOnly = true;
-            this.executeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.executeTextBox.Size = new System.Drawing.Size(120, 20);
             this.executeTextBox.TabIndex = 34;
             // 
             // storeTextBox
@@ -226,7 +230,7 @@
             this.storeTextBox.Location = new System.Drawing.Point(12, 261);
             this.storeTextBox.Name = "storeTextBox";
             this.storeTextBox.ReadOnly = true;
-            this.storeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.storeTextBox.Size = new System.Drawing.Size(120, 20);
             this.storeTextBox.TabIndex = 33;
             // 
             // decodeTextBox
@@ -234,7 +238,7 @@
             this.decodeTextBox.Location = new System.Drawing.Point(12, 120);
             this.decodeTextBox.Name = "decodeTextBox";
             this.decodeTextBox.ReadOnly = true;
-            this.decodeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.decodeTextBox.Size = new System.Drawing.Size(120, 20);
             this.decodeTextBox.TabIndex = 32;
             // 
             // instructOneText
@@ -242,7 +246,7 @@
             this.instructOneText.Location = new System.Drawing.Point(12, 49);
             this.instructOneText.Name = "instructOneText";
             this.instructOneText.ReadOnly = true;
-            this.instructOneText.Size = new System.Drawing.Size(100, 20);
+            this.instructOneText.Size = new System.Drawing.Size(120, 20);
             this.instructOneText.TabIndex = 19;
             // 
             // nextCycleButton
@@ -424,6 +428,28 @@
             this.panel1.Size = new System.Drawing.Size(312, 604);
             this.panel1.TabIndex = 17;
             // 
+            // counterTextBox
+            // 
+            this.counterTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.counterTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.counterTextBox.Location = new System.Drawing.Point(797, 37);
+            this.counterTextBox.Name = "counterTextBox";
+            this.counterTextBox.Size = new System.Drawing.Size(139, 53);
+            this.counterTextBox.TabIndex = 35;
+            this.counterTextBox.Text = "0";
+            // 
+            // cyclesLabel
+            // 
+            this.cyclesLabel.AutoSize = true;
+            this.cyclesLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cyclesLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cyclesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cyclesLabel.Location = new System.Drawing.Point(797, 7);
+            this.cyclesLabel.Name = "cyclesLabel";
+            this.cyclesLabel.Size = new System.Drawing.Size(139, 27);
+            this.cyclesLabel.TabIndex = 36;
+            this.cyclesLabel.Text = "Cycle Counter";
+            // 
             // GUIForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -485,6 +511,8 @@
         private System.Windows.Forms.TextBox storeTextBox;
         private System.Windows.Forms.TextBox decodeTextBox;
         private System.Windows.Forms.TextBox instructOneText;
+        public System.Windows.Forms.RichTextBox counterTextBox;
+        private System.Windows.Forms.Label cyclesLabel;
     }
 }
 

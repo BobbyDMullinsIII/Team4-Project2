@@ -36,21 +36,26 @@ namespace Team4_Project2
         //2 = decode phase
         //3 = execute phase
         //4 = store/finish phase
-        int phaseCounterOne = 0;                              
+        int phaseCounterOne = 0;
         int phaseCounterTwo;
         int phaseCounterThree;
         int phaseCounterFour;
-        int fStall, dStall, eStall, sStall =0;
+        int fStall, dStall, eStall, sStall = 0;
         int progCount = 0;
         List<string> instructions = new List<string>();
         int programIndex = 0;
-        int stallF = 0;
+        bool start = true;
+        int fetchStall, decodeStall, executeStall = 0;
+        int readyFetch, readyDecode, readyExecute = 0;
+        bool fWall, dWall, eWall, sWall = true;
+        bool fGo, dGo, eGo, sGo = false;
         List<Instruction> pipeFetch = new List<Instruction>();
         List<Instruction> pipeDecode = new List<Instruction>();
         List<Instruction> pipeExecute = new List<Instruction>();
         List<Instruction> pipeStore = new List<Instruction>();
         string instLit = string.Empty;
         int stopF = 0;
+        int readyFlag = 0;
 
 
 
@@ -156,9 +161,9 @@ namespace Team4_Project2
             //If assemblyTextBox has no code in it, show error message
             if (String.IsNullOrWhiteSpace(assemblyTextBox.Text) == true)
             {
-                MessageBox.Show("There is no assembly code to start the simulation.", 
-                                "Error - No Code To Process", 
-                                MessageBoxButtons.OK, 
+                MessageBox.Show("There is no assembly code to start the simulation.",
+                                "Error - No Code To Process",
+                                MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
             }
             //Else, start static pipeline simulation
@@ -193,91 +198,140 @@ namespace Team4_Project2
             //Increase cycle counter by one
             incrementCycleCounter();
 
-            if (pipeFetch.Count >= 1)
+            if(start == true)
             {
-                if (pipeFetch[0].Fetch == 0)
-                {
-                    if (pipeDecode.Count >= 3)
-                    {
-                        stallF = 1; 
-                    }
-                    else
-                    {
-                        stallF = 0;
-                        pipeDecode.Add(pipeFetch[0]);
-                        pipeFetch.RemoveAt(0);
-                    }
-                }
-                if(pipeFetch.Count>=1)
-                pipeFetch[0].Fetch--;                //decrement fetch counter for instruction at top of que
+                dWall = true;
+                sWall = true;
+                eWall = true;
             }
-            if (pipeDecode.Count >= 1)
-            {         
-                if (pipeDecode[0].Decode == 0)
-                {
-                    if (pipeExecute.Count >=3)
-                    {
-                        stallF = 1;
-                    }
-                    else 
-                    {
-                        stallF = 0;
-                        pipeExecute.Add(pipeDecode[0]);
-                        pipeDecode.RemoveAt(0);
-                    }
-                }
-                if (pipeDecode.Count >= 1)
-                    pipeDecode[0].Decode--;
-            }
-            if (pipeExecute.Count >= 1)
+
+
+
+
+            if(pipeStore.Count > 0)
             {
-                if (pipeExecute[0].Execute == 0)
-                {
-                    if (pipeStore.Count >= 3)
-                    {
-                        stallF = 1;
-                    }
-                    else
-                    {
-                        stallF = 0;
-                        pipeStore.Add(pipeExecute[0]);
-                        pipeExecute.RemoveAt(0);
-                    }
-                }
-                if (pipeExecute.Count >= 1)
-                    pipeExecute[0].Execute--;
-            }
-            if (pipeStore.Count >= 1)
-            {
-                
+                if (pipeStore.Count > 0)
+                    pipeStore[0].Store--;
                 if (pipeStore[0].Store == 0)
                 {
                     pipeStore.RemoveAt(0);
+                    sGo = false;
+                    sWall = true;
                 }
-                if (pipeStore.Count >= 1)
-                    pipeStore[0].Store--;
+
             }
-            if (stopF == 0 && stallF == 0)
+            if (pipeExecute.Count > 0)
+            {
+
+                if (sGo != true)
+                {
+                    pipeExecute[0].Execute--;
+                }
+                if (pipeExecute[0].Execute <= 0)
+                {
+                    sGo = true;
+                }
+                if (sGo == true && sWall == true)
+                {
+                    pipeStore.Add(pipeExecute[0]);
+                    sWall = false;
+                    pipeExecute.RemoveAt(0);
+                    eWall = true;
+                    eGo = false;
+                    sGo = false;
+                }
+            }
+            if (pipeDecode.Count > 0)
+            {
+
+                if (eGo != true)
+                {
+                    pipeDecode[0].Decode--;
+                }
+                if (pipeDecode[0].Decode <= 0)
+                {
+                    eGo = true;
+                }
+                if (eGo == true && eWall == true)
+                {
+                    pipeExecute.Add(pipeDecode[0]);
+                    eWall = false;
+                    pipeDecode.RemoveAt(0);
+                    dWall = true;
+                    dGo = false;
+                    eGo = false;
+                }
+            }
+            if (pipeFetch.Count > 0)
+            {
+
+                if (dGo != true)
+                {
+                    pipeFetch[0].Fetch--;
+                }
+                if (pipeFetch[0].Fetch <= 0)
+                {
+                    dGo = true;
+                }
+                if (dGo == true && dWall == true)
+                {
+                    pipeDecode.Add(pipeFetch[0]);
+                    dWall = false;
+                    pipeFetch.RemoveAt(0);
+                    fWall = true;
+                    fGo = false;
+                    dGo = false;
+                }
+            }
+
+
+            if (start == true)
+            {
+                (pipeFetch, progCount, programIndex, stopF) = ProgramController.fetch(instructions, pipeFetch, progCount, programIndex);
+                start = false;
+
+            }
+            if (pipeFetch.Count == 0)
             {
                 (pipeFetch, progCount, programIndex, stopF) = ProgramController.fetch(instructions, pipeFetch, progCount, programIndex);
             }
+
+
+
+
             if (pipeFetch.Count >= 1)
             {
                 instructOneText.Text = pipeFetch[0].InstLit;
+            }
+            else
+            {
+                instructOneText.Text = "";
             }
             if (pipeDecode.Count >= 1)
             {
                 decodeTextBox.Text = pipeDecode[0].InstLit;
             }
+            else
+            {
+                decodeTextBox.Text = "";
+            }
             if (pipeExecute.Count >= 1)
             {
                 executeTextBox.Text = pipeExecute[0].InstLit;
             }
-            if (pipeStore.Count>=1)
+            else
+            {
+                executeTextBox.Text = "";
+            }
+            if (pipeStore.Count >= 1)
             {
                 storeTextBox.Text = pipeStore[0].InstLit;
             }
-            
+            else
+            {
+                storeTextBox.Text = "";
+            }
+            pipelineOutputTextBox.Text = $"fStall:{fStall}|dStall:{dStall}|eStall:{eStall}|sStall:{sStall}";
         }
         #endregion
 
@@ -302,6 +356,7 @@ namespace Team4_Project2
             counterTextBox.SelectionAlignment = HorizontalAlignment.Center;
 
         }//end incrementCycleCounter()
-        #endregion
+        #endregion    
+
     }
 }

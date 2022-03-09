@@ -642,7 +642,7 @@ namespace Team4_Project2
             {
                 case string n when (n == "LDRE"):
                     char loadType = checkAddressing(instructions[i+2]);
-                    if(loadType == 'R')
+                    if(loadType == 'r')
                     { 
                         instLit += instructions[i];
                         instLit += " ";

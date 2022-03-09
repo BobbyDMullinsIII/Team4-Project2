@@ -40,6 +40,8 @@
             this.assemblyTextBox = new System.Windows.Forms.TextBox();
             this.assemblyLabel = new System.Windows.Forms.Label();
             this.simulationPanel = new System.Windows.Forms.Panel();
+            this.cyclesLabel = new System.Windows.Forms.Label();
+            this.counterTextBox = new System.Windows.Forms.RichTextBox();
             this.executeTextBox = new System.Windows.Forms.TextBox();
             this.storeTextBox = new System.Windows.Forms.TextBox();
             this.decodeTextBox = new System.Windows.Forms.TextBox();
@@ -57,8 +59,6 @@
             this.pipelineOutputTextBox = new System.Windows.Forms.TextBox();
             this.pipelineOutputLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.counterTextBox = new System.Windows.Forms.RichTextBox();
-            this.cyclesLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.assemblyPanel.SuspendLayout();
             this.simulationPanel.SuspendLayout();
@@ -217,12 +217,34 @@
             this.simulationPanel.Size = new System.Drawing.Size(946, 604);
             this.simulationPanel.TabIndex = 3;
             // 
+            // cyclesLabel
+            // 
+            this.cyclesLabel.AutoSize = true;
+            this.cyclesLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cyclesLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cyclesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cyclesLabel.Location = new System.Drawing.Point(767, 7);
+            this.cyclesLabel.Name = "cyclesLabel";
+            this.cyclesLabel.Size = new System.Drawing.Size(139, 27);
+            this.cyclesLabel.TabIndex = 36;
+            this.cyclesLabel.Text = "Cycle Counter";
+            // 
+            // counterTextBox
+            // 
+            this.counterTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.counterTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.counterTextBox.Location = new System.Drawing.Point(736, 37);
+            this.counterTextBox.Name = "counterTextBox";
+            this.counterTextBox.Size = new System.Drawing.Size(200, 75);
+            this.counterTextBox.TabIndex = 35;
+            this.counterTextBox.Text = "0";
+            // 
             // executeTextBox
             // 
             this.executeTextBox.Location = new System.Drawing.Point(12, 193);
             this.executeTextBox.Name = "executeTextBox";
             this.executeTextBox.ReadOnly = true;
-            this.executeTextBox.Size = new System.Drawing.Size(120, 20);
+            this.executeTextBox.Size = new System.Drawing.Size(250, 20);
             this.executeTextBox.TabIndex = 34;
             // 
             // storeTextBox
@@ -230,7 +252,7 @@
             this.storeTextBox.Location = new System.Drawing.Point(12, 261);
             this.storeTextBox.Name = "storeTextBox";
             this.storeTextBox.ReadOnly = true;
-            this.storeTextBox.Size = new System.Drawing.Size(120, 20);
+            this.storeTextBox.Size = new System.Drawing.Size(250, 20);
             this.storeTextBox.TabIndex = 33;
             // 
             // decodeTextBox
@@ -238,7 +260,7 @@
             this.decodeTextBox.Location = new System.Drawing.Point(12, 120);
             this.decodeTextBox.Name = "decodeTextBox";
             this.decodeTextBox.ReadOnly = true;
-            this.decodeTextBox.Size = new System.Drawing.Size(120, 20);
+            this.decodeTextBox.Size = new System.Drawing.Size(250, 20);
             this.decodeTextBox.TabIndex = 32;
             // 
             // instructOneText
@@ -246,7 +268,7 @@
             this.instructOneText.Location = new System.Drawing.Point(12, 49);
             this.instructOneText.Name = "instructOneText";
             this.instructOneText.ReadOnly = true;
-            this.instructOneText.Size = new System.Drawing.Size(120, 20);
+            this.instructOneText.Size = new System.Drawing.Size(250, 20);
             this.instructOneText.TabIndex = 19;
             // 
             // nextCycleButton
@@ -257,10 +279,10 @@
             this.nextCycleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.nextCycleButton.ForeColor = System.Drawing.Color.Black;
             this.nextCycleButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.nextCycleButton.Location = new System.Drawing.Point(776, 552);
+            this.nextCycleButton.Location = new System.Drawing.Point(736, 517);
             this.nextCycleButton.Margin = new System.Windows.Forms.Padding(1);
             this.nextCycleButton.Name = "nextCycleButton";
-            this.nextCycleButton.Size = new System.Drawing.Size(160, 40);
+            this.nextCycleButton.Size = new System.Drawing.Size(200, 75);
             this.nextCycleButton.TabIndex = 18;
             this.nextCycleButton.Text = "Next Cycle";
             this.nextCycleButton.UseVisualStyleBackColor = false;
@@ -273,10 +295,10 @@
             this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.startButton.ForeColor = System.Drawing.Color.Black;
             this.startButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.startButton.Location = new System.Drawing.Point(12, 552);
+            this.startButton.Location = new System.Drawing.Point(12, 517);
             this.startButton.Margin = new System.Windows.Forms.Padding(1);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(160, 40);
+            this.startButton.Size = new System.Drawing.Size(200, 75);
             this.startButton.TabIndex = 17;
             this.startButton.Text = "Start Simulation";
             this.startButton.UseVisualStyleBackColor = false;
@@ -427,28 +449,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(312, 604);
             this.panel1.TabIndex = 17;
-            // 
-            // counterTextBox
-            // 
-            this.counterTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.counterTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.counterTextBox.Location = new System.Drawing.Point(797, 37);
-            this.counterTextBox.Name = "counterTextBox";
-            this.counterTextBox.Size = new System.Drawing.Size(139, 53);
-            this.counterTextBox.TabIndex = 35;
-            this.counterTextBox.Text = "0";
-            // 
-            // cyclesLabel
-            // 
-            this.cyclesLabel.AutoSize = true;
-            this.cyclesLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cyclesLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cyclesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cyclesLabel.Location = new System.Drawing.Point(797, 7);
-            this.cyclesLabel.Name = "cyclesLabel";
-            this.cyclesLabel.Size = new System.Drawing.Size(139, 27);
-            this.cyclesLabel.TabIndex = 36;
-            this.cyclesLabel.Text = "Cycle Counter";
             // 
             // GUIForm
             // 

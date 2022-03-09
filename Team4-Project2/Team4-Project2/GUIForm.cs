@@ -40,8 +40,10 @@ namespace Team4_Project2
         int phaseCounterTwo;
         int phaseCounterThree;
         int phaseCounterFour;
+
         int fStall, dStall, eStall, sStall = 0;
         int progCount = 0;
+
         List<string> instructions = new List<string>();
         int programIndex = 0;
         bool start = true;
@@ -49,21 +51,33 @@ namespace Team4_Project2
         int readyFetch, readyDecode, readyExecute = 0;
         bool fWall, dWall, eWall, sWall = true;
         bool fGo, dGo, eGo, sGo = false;
+
         List<Instruction> pipeFetch = new List<Instruction>();
         List<Instruction> pipeDecode = new List<Instruction>();
         List<Instruction> pipeExecute = new List<Instruction>();
         List<Instruction> pipeStore = new List<Instruction>();
+
         string instLit = string.Empty;
         int stopF = 0;
+
         int readyFlag = 0;
+
         bool ifStop = false;
+
         string param1, param2, store = string.Empty;
+
         int dataHCount = 0;
+
         bool rawFlag = true;
+        bool warFlag = true;
+
         bool rF1 = true;
         bool rF2 = true;
+
         int rawCount = 0;
+        int warCount = 0;
         int structCount = 0;
+
         bool sFlagCount = true;
         bool eFlagCount = true;
         bool fFlagCount = true;
@@ -235,7 +249,7 @@ namespace Team4_Project2
                 if (ifStop == true && pipeStore.Count == 0)
                 {
                     nextCycleButton.Enabled = false;
-                    pipelineOutputTextBox.Text = ProgramController.outputPipelineStats(structCount, dataHCount, 0, rawCount, 0, 0, fStall, dStall, eStall, sStall, cycleCounter);
+                    pipelineOutputTextBox.Text = ProgramController.outputPipelineStats(structCount, dataHCount, 0, rawCount, warCount, 0, fStall, dStall, eStall, sStall, cycleCounter);
                 }
             }
 
@@ -368,6 +382,8 @@ namespace Team4_Project2
                         rF2 = false;
                     }
                 }
+
+
                 if (rawFlag == false)
                 {
                     if (pipeExecute.Count == 0 && pipeStore.Count == 0 && rF1 == false)

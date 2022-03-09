@@ -406,8 +406,6 @@ namespace Team4_Project2
                         rF2 = false;
                     }
                 }
-
-
                 if (rawFlag == false)
                 {
                     if (pipeExecute.Count == 0 && pipeStore.Count == 0 && rF1 == false)
@@ -424,12 +422,14 @@ namespace Team4_Project2
 
                 if (warFlag == false)
                 {
-                    if (pipeExecute.Count == 0 && pipeStore.Count == 0 && rF1 == false)
+
+                    if (pipeExecute.Count == 0 && pipeStore.Count == 0 || rF1 == false)
                     {
                         warFlag = true;
                         rF1 = true;
                     }
-                    if (pipeExecute.Count == 0 && rF2 == false)
+
+                    if (pipeExecute.Count == 0 || rF2 == false)
                     {
                         warFlag = true;
                         rF2 = true;

@@ -47,8 +47,10 @@ namespace Team4_Project2
         List<string> instructions = new List<string>();
         int programIndex = 0;
         bool start = true;
+
         int fetchStall, decodeStall, executeStall = 0;
         int readyFetch, readyDecode, readyExecute = 0;
+
         bool fWall, dWall, eWall, sWall = true;
         bool fGo, dGo, eGo, sGo = false;
 
@@ -383,6 +385,28 @@ namespace Team4_Project2
                     }
                 }
 
+                if (pipeExecute.Count > 0 && warFlag == true)
+                {
+                    if (pipeDecode[0].SRegister == pipeExecute[0].P1Register || pipeDecode[0].SRegister == pipeExecute[0].P2Register)
+                    {
+                        warFlag = false;
+                        warCount++;
+                        dataHCount++;
+                        rF1 = false;
+                    }
+                }
+
+                if (pipeStore.Count > 0 && warFlag == true)
+                {
+                    if (pipeDecode[0].SRegister == pipeStore[0].P1Register || pipeDecode[0].SRegister == pipeStore[0].P2Register)
+                    {
+                        warFlag = false;
+                        warCount++;
+                        dataHCount++;
+                        rF2 = false;
+                    }
+                }
+
 
                 if (rawFlag == false)
                 {
@@ -394,6 +418,20 @@ namespace Team4_Project2
                     if (pipeExecute.Count == 0 && rF2 == false)
                     {
                         rawFlag = true;
+                        rF2 = true;
+                    }
+                }
+
+                if (warFlag == false)
+                {
+                    if (pipeExecute.Count == 0 && pipeStore.Count == 0 && rF1 == false)
+                    {
+                        warFlag = true;
+                        rF1 = true;
+                    }
+                    if (pipeExecute.Count == 0 && rF2 == false)
+                    {
+                        warFlag = true;
                         rF2 = true;
                     }
                 }

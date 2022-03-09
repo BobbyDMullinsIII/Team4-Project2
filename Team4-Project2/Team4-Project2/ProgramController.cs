@@ -634,28 +634,28 @@ namespace Team4_Project2
         /// </summary>
         /// <param name="fetchInput">Input instruction to fetch</param>
         /// <returns>@$$</returns>
-        public static (List<Instruction>, int, int,int) fetch(List<string> instructions, List<Instruction> pipeInts, int progCount, int i)
+        public static (List<Instruction>, int, int, int) fetch(List<string> instructions, List<Instruction> pipeInts, int progCount, int i)
         {
             string instLit = string.Empty;
             int stopF = 0;
             switch (instructions[i])
             {
                 case string n when (n == "LDRE"):
-                    char loadType = checkAddressing(instructions[i+2]);
-                    if(loadType == 'r')
-                    { 
+                    char loadType = checkAddressing(instructions[i + 2]);
+                    if (loadType == 'r')
+                    {
                         instLit += instructions[i];
                         instLit += " ";
-                        instLit += instructions[i+1];
+                        instLit += instructions[i + 1];
                         instLit += " ";
-                        instLit += instructions[i+2];
+                        instLit += instructions[i + 2];
 
                         Instruction LDRERR = new Instruction(progCount += 4, 1, 1, 1, 2, instructions[i + 1], instructions[i + 2], instLit);
                         pipeInts.Add(LDRERR);
                         i += 4;
 
                     }
-                    else if(loadType== '#')
+                    else if (loadType == '#')
                     {
                         instLit += instructions[i];
                         instLit += " ";
@@ -667,8 +667,8 @@ namespace Team4_Project2
                         pipeInts.Add(LDRERI);
                         i += 4;
                     }
-                    else 
-                    {                        
+                    else
+                    {
                         instLit += instructions[i];
                         instLit += " ";
                         instLit += instructions[i + 1];
@@ -676,7 +676,7 @@ namespace Team4_Project2
                         instLit += instructions[i + 2];
 
 
-                        Instruction LDRERM = new Instruction(progCount += 4, 1, 1, 3, 2, instructions[i + 1], instructions[i+2], instLit);
+                        Instruction LDRERM = new Instruction(progCount += 4, 1, 1, 3, 2, instructions[i + 1], instructions[i + 2], instLit);
                         pipeInts.Add(LDRERM);
                         i += 4;
                     }
@@ -688,7 +688,7 @@ namespace Team4_Project2
                     instLit += instructions[i + 1];
                     instLit += " ";
                     instLit += instructions[i + 2];
-                    
+
 
                     Instruction STRE = new Instruction(progCount += 4, 1, 1, 3, 2, instructions[i + 1], instructions[i + 2], instLit);
                     pipeInts.Add(STRE);
@@ -779,7 +779,7 @@ namespace Team4_Project2
                     instLit += instructions[i + 1];
                     instLit += " ";
                     instLit += instructions[i + 2];
-                    
+
 
                     Instruction BRAN = new Instruction(progCount += 4, 1, 1, 1, 1, instructions[i + 1], instructions[i + 2], instLit);
                     pipeInts.Add(BRAN);
@@ -820,7 +820,7 @@ namespace Team4_Project2
                     instLit += instructions[i + 2];
                     instLit += " ";
                     instLit += instructions[i + 3];
-                    
+
                     Instruction FADD = new Instruction(progCount += 4, 1, 1, 2, 2, instructions[i + 1], instructions[i + 2], instructions[i + 3], instLit);
                     pipeInts.Add(FADD);
                     i += 5;
@@ -834,14 +834,14 @@ namespace Team4_Project2
                     instLit += instructions[i + 2];
                     instLit += " ";
                     instLit += instructions[i + 3];
-                    
+
                     Instruction FSUB = new Instruction(progCount += 4, 1, 1, 2, 2, instructions[i + 1], instructions[i + 2], instructions[i + 3], instLit);
                     pipeInts.Add(FSUB);
                     i += 5;
                     break;
 
 
-                case string n when (n == "FMUL"):               
+                case string n when (n == "FMUL"):
                     instLit += instructions[i];
                     instLit += " ";
                     instLit += instructions[i + 1];
@@ -849,13 +849,13 @@ namespace Team4_Project2
                     instLit += instructions[i + 2];
                     instLit += " ";
                     instLit += instructions[i + 3];
-                    
+
                     Instruction FMUL = new Instruction(progCount += 4, 1, 1, 5, 2, instructions[i + 1], instructions[i + 2], instructions[i + 3], instLit);
                     pipeInts.Add(FMUL);
                     i += 5;
                     break;
 
-                case string n when (n == "FDIV"):                
+                case string n when (n == "FDIV"):
                     instLit += instructions[i];
                     instLit += " ";
                     instLit += instructions[i + 1];
@@ -863,19 +863,19 @@ namespace Team4_Project2
                     instLit += instructions[i + 2];
                     instLit += " ";
                     instLit += instructions[i + 3];
-                   
+
                     Instruction FDIV = new Instruction(progCount += 4, 1, 1, 10, 2, instructions[i + 1], instructions[i + 2], instructions[i + 3], instLit);
                     pipeInts.Add(FDIV);
                     i += 5;
                     break;
 
-                case string n when (n == "NOOP"):                 
+                case string n when (n == "NOOP"):
                     instLit += instructions[i];
                     instLit += " ";
                     instLit += instructions[i + 1];
                     instLit += " ";
                     instLit += instructions[i + 2];
-                    
+
                     Instruction NOOP = new Instruction(progCount += 4, 1, 1, 1, 1, instructions[i + 1], instructions[i + 2], instLit);
                     pipeInts.Add(NOOP);
                     i += 4;
@@ -889,7 +889,7 @@ namespace Team4_Project2
                     break;
             }
 
-            return (pipeInts : pipeInts, progCount : progCount, i : i, stopF : stopF);
+            return (pipeInts: pipeInts, progCount: progCount, i: i, stopF: stopF);
 
         }//end fetch()
         #endregion
@@ -899,10 +899,10 @@ namespace Team4_Project2
         /// </summary>
         /// <param name="decodeInput">Input instruction to decode</param>
         /// <returns></returns>
-        public static (string,string,string) decode(Instruction pipeInts )
+        public static (string, string, string) decode(Instruction pipeInts)
         {
             string param2 = string.Empty;
-            if(pipeInts.P2Register!= string.Empty)
+            if (pipeInts.P2Register != string.Empty)
             {
                 param2 = pipeInts.P2Register;
             }
@@ -911,7 +911,7 @@ namespace Team4_Project2
             //INSERT CODE FOR DECODING HERE//
             //=============================//
 
-            return (store: pipeInts.SRegister,param1 : pipeInts.P1Register, param2 : pipeInts.P2Register);
+            return (store: pipeInts.SRegister, param1: pipeInts.P1Register, param2: pipeInts.P2Register);
 
         }//end decode()
         #endregion
@@ -963,11 +963,12 @@ namespace Team4_Project2
         /// <returns></returns>
         public static Char checkAddressing(string instruction)
         {
-            if(instruction[0] == 'R')
+            if (instruction[0] == 'R')
             {
-                return 'r';            }
+                return 'r';
+            }
 
-            else if(instruction[0] == '#')
+            else if (instruction[0] == '#')
             {
                 return 'i';
             }
@@ -996,16 +997,16 @@ namespace Team4_Project2
         /// <param name="store">Store cycles stalled</param>
         /// <param name="cycles">Total cycles of static pipeline simulation</param>
         /// <returns>Statistics of the pipeline from the static pipeline simulation</returns>
-        public static string outputPipelineStats(int structural, 
-                                                 int data, 
-                                                 int control, 
-                                                 int RAW, 
-                                                 int WAR, 
+        public static string outputPipelineStats(int structural,
+                                                 int data,
+                                                 int control,
+                                                 int RAW,
+                                                 int WAR,
                                                  int WAW,
-                                                 int fetch, 
+                                                 int fetch,
                                                  int decode,
-                                                 int execute, 
-                                                 int store, 
+                                                 int execute,
+                                                 int store,
                                                  int cycles)
         {
             return $"Hazards\r\n" +
@@ -1032,11 +1033,11 @@ namespace Team4_Project2
 
                    $"Total Cycles\r\n" +
                    $"============\r\n" +
-                   $"{cycles}\r\n"; 
+                   $"{cycles}\r\n";
 
         }//end outputPipelineStats()
         #endregion
-          
+
     }//end ProgramController class
 
 }//end Team4_Project2 namespace

@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Files\Information.txt" />
+    <Content Include="TestFiles\Examples.txt" />
     <Content Include="TestFiles\TestAssemblyCode.txt" />
     <Content Include="TestFiles\TextMachineCode.txt" />
   </ItemGroup>
